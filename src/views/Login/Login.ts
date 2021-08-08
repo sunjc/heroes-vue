@@ -6,14 +6,19 @@ export default defineComponent({
   data() {
     return {
       user: {} as Credentials,
-      rules: {
+    }
+  },
+
+  computed: {
+    rules() {
+      return {
         username: [
           {required: true, message: this.$t('message.usernameError'), trigger: 'blur'}
         ],
         password: [
           {required: true, message: this.$t('message.passwordError'), trigger: 'blur'}
         ]
-      }
+      };
     }
   },
 
@@ -32,7 +37,7 @@ export default defineComponent({
 
       try {
         await authService.login(this.user);
-        this.$router.push('/dashboard');
+        await this.$router.push('/dashboard');
       } catch (error) {
         this.$message(this.$t('message.userInvalidated'));
       }
