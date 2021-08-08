@@ -1,4 +1,14 @@
 export const enMessage = {
+  title: 'Tour of Heroes',
+  login: 'Login',
+  dashboard: 'Dashboard',
+  heroes: 'Heroes',
+  about: 'About',
+  username: 'Username',
+  password: 'Password',
+  usernameError: 'Please input your Username',
+  passwordError: 'Please input your Password',
+  userInvalidated: 'Username or password is incorrect',
   topHeroes: 'Top Heroes',
   heroSearch: 'Hero Search',
   myHeroes: 'My Heroes',
@@ -7,5 +17,9 @@ export const enMessage = {
   no: 'No',
   name: 'Name',
   createdDate: 'Created Date',
-  delete: 'Delete'
+  delete: 'Delete',
+  details: 'Details',
+  id: 'ID',
+  back: 'Go back',
+  save: 'Save'
 }

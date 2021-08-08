@@ -8,10 +8,10 @@ export default defineComponent({
       user: {} as Credentials,
       rules: {
         username: [
-          {required: true, message: 'Please input your Username!', trigger: 'blur'}
+          {required: true, message: this.$t('message.usernameError'), trigger: 'blur'}
         ],
         password: [
-          {required: true, message: 'Please input your Password!', trigger: 'blur'}
+          {required: true, message: this.$t('message.passwordError'), trigger: 'blur'}
         ]
       }
     }
@@ -34,7 +34,7 @@ export default defineComponent({
         await authService.login(this.user);
         this.$router.push('/dashboard');
       } catch (error) {
-        this.$message('错误的用户名或密码!');
+        this.$message(this.$t('message.userInvalidated'));
       }
     },
   }

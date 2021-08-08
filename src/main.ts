@@ -11,6 +11,8 @@ import {
   ElMain,
   ElMessage,
   ElPagination,
+  ElRadioButton,
+  ElRadioGroup,
   ElRow,
   ElTable,
   ElTableColumn
@@ -36,8 +38,6 @@ const i18n = createI18n({
 
 const app = createApp(App)
 
-app.use(i18n)
-
 app.use(router)
 
 // Element UI components
@@ -52,9 +52,13 @@ app.use(ElLoading)
 app.use(ElMain)
 app.use(ElMessage)
 app.use(ElPagination)
+app.use(ElRadioButton)
+app.use(ElRadioGroup)
 app.use(ElRow)
 app.use(ElTable)
 app.use(ElTableColumn)
+
+app.use(i18n)
 
 app.component("Pagination", Pagination)
 

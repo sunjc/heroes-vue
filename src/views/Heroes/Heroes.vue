@@ -1,16 +1,16 @@
 <template>
-  <h2>My Heroes</h2>
+  <h2>{{ $t("message.myHeroes") }}</h2>
 
   <el-row :gutter="20" align="middle">
     <el-col :span="3" align="right">
-      <label for="new-hero">Hero name:</label>
+      <label for="new-hero">{{ $t("message.heroName") }}</label>
     </el-col>
     <el-col :span="9">
       <el-input id="new-hero" v-model.trim="hero.name"></el-input>
     </el-col>
     <el-col :span="6">
       <el-button type="primary" @click="addHero()">
-        Add hero
+        {{ $t("message.addHero") }}
       </el-button>
     </el-col>
   </el-row>
@@ -19,8 +19,8 @@
     <el-table :data="heroes" style="width: 100%" row-key="index" size="small" @sort-change="sortChanged"
               :default-sort="{prop: 'name', order: 'ascending'}"
               stripe border highlight-current-row>
-      <el-table-column type="index" label="No" header-align="center" width="25"></el-table-column>
-      <el-table-column prop="name" label="Name" header-align="center" sortable="custom"
+      <el-table-column type="index" :label="$t('message.no')" header-align="center" width="30"></el-table-column>
+      <el-table-column prop="name" :label="$t('message.name')" header-align="center" sortable="custom"
                        :sort-orders="['ascending', 'descending']">
         <template #default="scope">
           <router-link :to="{name: 'detail', params: {id: scope.row.id}}">
@@ -28,12 +28,11 @@
           </router-link>
         </template>
       </el-table-column>
-      <el-table-column prop="createdDate" label="Created Date" :formatter="formatter" align="center"
+      <el-table-column prop="createdDate" :label="$t('message.createdDate')" :formatter="formatter" align="center"
                        width="80"></el-table-column>
-      <el-table-column label="Delete" align="center" width="60">
+      <el-table-column :label="$t('message.delete')" align="center" width="60">
         <template #default="scope">
-          <el-button type="danger" icon="el-icon-delete" size="small" title="delete hero"
-                     @click="deleteHero(scope.row.id)"></el-button>
+          <el-button type="danger" icon="el-icon-delete" size="small" @click="deleteHero(scope.row.id)"></el-button>
         </template>
       </el-table-column>
     </el-table>

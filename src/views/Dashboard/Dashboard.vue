@@ -1,5 +1,5 @@
 <template>
-  <h2>Top Heroes</h2>
+  <h2>{{ $t("message.topHeroes") }}</h2>
   <div class="heroes-menu">
     <router-link v-for="hero in heroes" :key="hero.id" :to="{name: 'detail', params: {id: hero.id}}">
       {{ hero.name }}
