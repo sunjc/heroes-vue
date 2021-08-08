@@ -1,0 +1,24 @@
+/* HeroesComponent's private CSS styles */
+.heroes {
+  list-style-type: none;
+  padding-top: 20px;
+  width: 37em;
+
+  a {
+    color: #333;
+    text-decoration: none;
+    height: 1.6em;
+    display: block;
+    width: 100%;
+
+    &:hover {
+      color: #2c3a41;
+      background-color: #e6e6e6;
+    }
+
+    &:active {
+      background-color: #525252;
+      color: #fafafa;
+    }
+  }
+}

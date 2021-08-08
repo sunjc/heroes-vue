@@ -1,0 +1,42 @@
+/*
+Write your variables here. All available variables can be
+found in element-plus/packages/theme-chalk/src/common/var.scss.
+For example, to overwrite the theme color:
+*/
+
+$--color-primary: hotpink;
+
+/* icon font path, required */
+$--font-path: '~element-plus/lib/theme-chalk/fonts';
+
+@import "~element-plus/packages/theme-chalk/src/index";
+
+:root {
+  --el-table-font-color: black;
+  --el-table-header-font-color: black;
+}
+
+.el-table {
+  .cell {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.el-table--border {
+  th:first-child, td:first-child {
+    .cell {
+      padding-left: 0px;
+    }
+  }
+}
+
+.el-table--small {
+  th {
+    padding: 2px;
+  }
+
+  td {
+    padding: 2px;
+  }
+}
