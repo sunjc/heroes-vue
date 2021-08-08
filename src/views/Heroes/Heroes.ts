@@ -35,7 +35,7 @@ export default defineComponent({
       this.getHeroes();
     },
 
-    sortChanged(sort: { column: any, prop: string, order: string }): void {
+    sortChanged(sort: { column: unknown, prop: string, order: string }): void {
       this.pageable.sort = sort;
       this.pageable.page = 1;
       this.getHeroes();
@@ -60,7 +60,7 @@ export default defineComponent({
       });
     },
 
-    formatter(row: any, column: any, cellValue: string, index: number) {
+    formatter(row: Hero, column: unknown, cellValue: string, index: number) {
       return new Date(cellValue).toLocaleDateString();
     }
   }

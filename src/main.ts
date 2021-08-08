@@ -35,9 +35,8 @@ const i18n = createI18n({
   messages,
 })
 
-
 const app = createApp(App)
-
+// router
 app.use(router)
 
 // Element UI components
@@ -58,10 +57,13 @@ app.use(ElRow)
 app.use(ElTable)
 app.use(ElTableColumn)
 
+// i18n
 app.use(i18n)
 
+// global components
 app.component("Pagination", Pagination)
 
+// global properties
 app.config.globalProperties.$message = ElMessage;
 app.config.globalProperties.$http = axios
 app.config.globalProperties.$hasRole = hasRole;
