@@ -10,7 +10,7 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="goBack()">{{ $t("message.back") }}</el-button>
-        <el-button type="primary" @click="save()">{{ $t("message.save") }}</el-button>
+        <el-button type="primary" v-if="$hasRole('ADMIN')" @click="save()">{{ $t("message.save") }}</el-button>
       </el-form-item>
     </el-form>
   </div>

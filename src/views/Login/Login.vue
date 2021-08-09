@@ -8,7 +8,7 @@
                 autocomplete="off" prefix-icon="el-icon-lock" show-password></el-input>
     </el-form-item>
     <el-form-item>
-      ({{ $t("message.username") }}: admin, {{ $t("message.password") }}: admin)
+      ({{ $t("message.username") }}/{{ $t("message.password") }}: admin/admin, jason/jason)
     </el-form-item>
     <el-form-item>
       <el-button type="primary" class="login-form-button" @click="login">{{ $t("message.login") }}</el-button>

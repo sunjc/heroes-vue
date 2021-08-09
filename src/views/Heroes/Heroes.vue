@@ -1,7 +1,7 @@
 <template>
   <h2>{{ $t("message.myHeroes") }}</h2>
 
-  <el-row :gutter="20" align="middle">
+  <el-row :gutter="20" align="middle" v-if="$hasRole('ADMIN')">
     <el-col :span="3" align="right">
       <label for="new-hero">{{ $t("message.heroName") }}</label>
     </el-col>
@@ -30,7 +30,7 @@
       </el-table-column>
       <el-table-column prop="createdDate" :label="$t('message.createdDate')" :formatter="formatter" align="center"
                        width="80"></el-table-column>
-      <el-table-column :label="$t('message.delete')" align="center" width="60">
+      <el-table-column :label="$t('message.delete')" align="center" width="60" v-if="$hasRole('ADMIN')">
         <template #default="scope">
           <el-button type="danger" icon="el-icon-delete" size="small" @click="deleteHero(scope.row.id)"></el-button>
         </template>
