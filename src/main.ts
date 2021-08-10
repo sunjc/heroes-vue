@@ -28,7 +28,7 @@ import axios from './utils/axios.config';
 import {hasRole} from '@/service/AuthService';
 import Pagination from '@/components/Pagination/Pagination.vue';
 import {datetimeFormats, messages} from '@/locale/messages';
-import {ComponentPublicInstance} from '@vue/runtime-core';
+import {onError, onWarn} from '@/utils/exceptions';
 
 const i18n = createI18n({
   locale: enLocale.name,
@@ -69,12 +69,8 @@ app.component('Pagination', Pagination)
 app.config.globalProperties.$message = ElMessage;
 app.config.globalProperties.$http = axios
 app.config.globalProperties.$hasRole = hasRole;
-app.config.errorHandler = (err: unknown, instance: ComponentPublicInstance | null, info: string) => {
-  ElMessage(err as string);
-}
-app.config.warnHandler = (msg: string, instance: ComponentPublicInstance | null, trace: string) => {
-  console.warn(msg);
-}
+app.config.errorHandler = onError;
+app.config.warnHandler = onWarn;
 
 app.mount('#app')
 

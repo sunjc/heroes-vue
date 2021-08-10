@@ -21,5 +21,11 @@ export const enMessage = {
   details: 'Details',
   id: 'ID',
   back: 'Go back',
-  save: 'Save'
+  save: 'Save',
+  error: {
+    unauthorized: 'you are not authorized',
+    forbidden: 'forbidden',
+    notFound: 'not found',
+    serverError: 'Internal Server Error'
+  }
 }

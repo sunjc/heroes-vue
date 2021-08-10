@@ -21,5 +21,11 @@ export const zhMessage = {
   details: '详情',
   id: 'ID',
   back: '返回',
-  save: '保存'
+  save: '保存',
+  error: {
+    unauthorized: '您未获授权',
+    forbidden: '您没有权限',
+    notFound: '资源未找到',
+    serverError: '服务器内部错误'
+  }
 }
