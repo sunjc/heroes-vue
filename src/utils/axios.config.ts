@@ -1,5 +1,6 @@
 import axios from "axios";
-import {getToken, logout} from "@/service/AuthService";
+import {getToken} from "@/service/AuthService";
+import router from "@/router";
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -19,27 +20,26 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   return response;
 }, error => {
-  let message = error.response.data.message;
+  let message;
   switch (error.response.status) {
-    case 400:
-      break;
     case 401:
-      logout();
-      message = "";
+      message = 'not authorized';
+      router.push('/login');
       break;
     case 403:
+      message = 'forbidden';
       break;
     case 404:
-
+      message = 'not found'
       break;
     case 500:
-      message = "服务器出错啦";
+      message = 'Internal Server Error';
       break;
     default:
+      message = error.response.data.message;
       break;
   }
-  console.error(message);
-  return Promise.reject(error);
+  return Promise.reject(message);
 })
 
 export default axios;

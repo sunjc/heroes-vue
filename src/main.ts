@@ -1,4 +1,5 @@
 import {createApp} from 'vue'
+import {createI18n} from 'vue-i18n';
 import {
   ElButton,
   ElCol,
@@ -18,21 +19,22 @@ import {
   ElTableColumn
 } from 'element-plus'
 import 'element-plus/packages/theme-chalk/src/base.scss'
+import enLocale from 'element-plus/lib/locale/lang/en';
 import './assets/styles.scss'
 import './element-variables.scss'
 import App from './App.vue'
 import router from './router'
-import axios from "./utils/axios.config";
-import {hasRole} from "@/service/AuthService";
-import Pagination from "@/components/Pagination/Pagination.vue";
-import {messages} from "@/locale/messages";
-import {createI18n} from "vue-i18n";
-import enLocale from "element-plus/lib/locale/lang/en";
+import axios from './utils/axios.config';
+import {hasRole} from '@/service/AuthService';
+import Pagination from '@/components/Pagination/Pagination.vue';
+import {datetimeFormats, messages} from '@/locale/messages';
+import {ComponentPublicInstance} from '@vue/runtime-core';
 
 const i18n = createI18n({
   locale: enLocale.name,
   fallbackLocale: enLocale.name,
   messages,
+  datetimeFormats
 })
 
 const app = createApp(App)
@@ -61,12 +63,18 @@ app.use(ElTableColumn)
 app.use(i18n)
 
 // global components
-app.component("Pagination", Pagination)
+app.component('Pagination', Pagination)
 
 // global properties
 app.config.globalProperties.$message = ElMessage;
 app.config.globalProperties.$http = axios
 app.config.globalProperties.$hasRole = hasRole;
+app.config.errorHandler = (err: unknown, instance: ComponentPublicInstance | null, info: string) => {
+  ElMessage(err as string);
+}
+app.config.warnHandler = (msg: string, instance: ComponentPublicInstance | null, trace: string) => {
+  console.warn(msg);
+}
 
 app.mount('#app')
 

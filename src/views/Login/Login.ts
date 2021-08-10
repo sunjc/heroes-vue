@@ -1,6 +1,6 @@
-import {defineComponent} from "vue";
-import {Credentials} from "@/model/Credentials";
-import * as authService from "@/service/AuthService"
+import {defineComponent} from 'vue';
+import {Credentials} from '@/model/Credentials';
+import * as authService from '@/service/AuthService'
 
 export default defineComponent({
   data() {
@@ -35,12 +35,8 @@ export default defineComponent({
         return;
       }
 
-      try {
-        await authService.login(this.user);
-        await this.$router.push('/dashboard');
-      } catch (error) {
-        this.$message(this.$t('message.userInvalidated'));
-      }
-    },
+      await authService.login(this.user);
+      await this.$router.push('/dashboard');
+    }
   }
 })
