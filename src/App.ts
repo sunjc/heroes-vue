@@ -19,7 +19,7 @@ export default defineComponent({
   },
   computed: {
     currentDate(): string {
-      return new Date().toLocaleDateString();
+      return this.$d(new Date());
     }
   },
   methods: {
