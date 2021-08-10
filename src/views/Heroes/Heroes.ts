@@ -46,7 +46,7 @@ export default defineComponent({
         return;
       }
 
-      heroService.addHero(this.hero).then(() => {
+      heroService.addHero(this.hero as Hero).then(() => {
         this.pageable.page = 1;
         this.getHeroes();
         this.hero.name = '';

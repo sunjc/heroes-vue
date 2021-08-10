@@ -25,7 +25,7 @@ export default defineComponent({
 
     async save(): Promise<void> {
       if (this.hero) {
-        await heroService.updateHero(this.hero);
+        await heroService.updateHero(this.hero as Hero);
         this.goBack();
       }
     }

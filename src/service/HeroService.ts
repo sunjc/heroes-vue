@@ -26,7 +26,7 @@ export async function addHero(hero: Hero): Promise<Hero> {
 
 /** PUT: update the hero on the server */
 export async function updateHero(hero: Hero): Promise<Hero> {
-  return (await axios.put(heroesUrl, hero)).data;
+  return (await axios.put<Hero>(heroesUrl, hero)).data;
 }
 
 /** DELETE: delete the hero from the server */
