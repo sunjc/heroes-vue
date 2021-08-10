@@ -1,6 +1,6 @@
-import axios from "@/utils/axios.config";
-import {Page, Pageable, pageParams} from "@/utils/page";
-import {Hero} from "@/model/Hero";
+import axios from '@/utils/axios.config';
+import {Page, Pageable, pageParams} from '@/utils/page';
+import {Hero} from '@/model/Hero';
 
 const heroesUrl = '/api/heroes';
 

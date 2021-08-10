@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import {isAuthenticated} from "@/service/AuthService";
-import routes from "@/router/routes";
+import {isAuthenticated} from '@/service/AuthService';
+import routes from './routes';
 
 const ignorePaths = ['/login', '/about']
 

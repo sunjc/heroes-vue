@@ -1,6 +1,6 @@
-import {Credentials} from "@/model/Credentials";
-import axios from "axios";
-import {UserDetails} from "@/model/UserDetails";
+import {Credentials} from '@/model/Credentials';
+import axios from 'axios';
+import {UserDetails} from '@/model/UserDetails';
 
 const authUrl = '/api/auth';
 

@@ -1,6 +1,6 @@
-import {defineComponent} from "vue";
-import {Hero} from "@/model/Hero";
-import * as heroService from "@/service/HeroService";
+import {defineComponent} from 'vue';
+import {Hero} from '@/model/Hero';
+import * as heroService from '@/service/HeroService';
 
 export default defineComponent({
   data() {

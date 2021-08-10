@@ -1,8 +1,8 @@
-import {defineComponent} from "vue";
+import {defineComponent} from 'vue';
 import HeroSearch from '@/components/HeroSearch/HeroSearch.vue';
-import {Hero} from "@/model/Hero";
-import {PageRequest} from "@/utils/page";
-import * as heroService from "@/service/HeroService";
+import {Hero} from '@/model/Hero';
+import {PageRequest} from '@/utils/page';
+import * as heroService from '@/service/HeroService';
 
 export default defineComponent({
   components: {
