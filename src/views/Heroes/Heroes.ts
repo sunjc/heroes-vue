@@ -18,46 +18,43 @@ export default defineComponent({
   },
 
   methods: {
-    getHeroes(): void {
-      heroService.getHeroes(this.pageable).then(data => {
-        this.heroes = data.content;
-        this.totalItems = data.totalElements;
-      });
+    async getHeroes(): Promise<void> {
+      const page = await heroService.getHeroes(this.pageable);
+      this.heroes = page.content;
+      this.totalItems = page.totalElements;
     },
 
-    pageChanged(page: number): void {
+    async pageChanged(page: number): Promise<void> {
       this.pageable.page = page;
-      this.getHeroes();
+      await this.getHeroes();
     },
 
-    sizeChanged(size: number): void {
+    async sizeChanged(size: number): Promise<void> {
       this.pageable.size = size;
-      this.getHeroes();
+      await this.getHeroes();
     },
 
-    sortChanged(sort: { column: unknown, prop: string, order: string }): void {
+    async sortChanged(sort: { column: unknown, prop: string, order: string }): Promise<void> {
       this.pageable.sort = sort;
       this.pageable.page = 1;
-      this.getHeroes();
+      await this.getHeroes();
     },
 
-    addHero(): void {
+    async addHero(): Promise<void> {
       if (!this.hero.name) {
         return;
       }
 
-      heroService.addHero(this.hero as Hero).then(() => {
-        this.pageable.page = 1;
-        this.getHeroes();
-        this.hero.name = '';
-      });
+      await heroService.addHero(this.hero as Hero)
+      this.pageable.page = 1;
+      await this.getHeroes();
+      this.hero.name = '';
     },
 
-    deleteHero(id: number): void {
-      heroService.deleteHero(id).then(() => {
-        this.pageable.page = 1;
-        this.getHeroes();
-      });
+    async deleteHero(id: number): Promise<void> {
+      await heroService.deleteHero(id);
+      this.pageable.page = 1;
+      await this.getHeroes();
     },
 
     formatter(row: Hero, column: unknown, cellValue: string, index: number) {

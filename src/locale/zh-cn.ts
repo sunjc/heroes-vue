@@ -26,6 +26,7 @@ export const zhMessage = {
     unauthorized: '您未获授权',
     forbidden: '您没有权限',
     notFound: '资源未找到',
-    serverError: '服务器内部错误'
+    serverError: '服务器内部错误',
+    badCredentials: '错误的用户名或密码'
   }
 }

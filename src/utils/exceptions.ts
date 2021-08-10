@@ -5,7 +5,11 @@ export function onError(err: any, instance: ComponentPublicInstance | null, info
   let message;
   switch (err.status) {
     case 401:
-      message = instance?.$t('message.error.unauthorized');
+      if (err.data.error === "BadCredentialsException") {
+        message = instance?.$t('message.error.badCredentials');
+      } else {
+        message = instance?.$t('message.error.unauthorized');
+      }
       break;
     case 403:
       message = instance?.$t('message.error.forbidden');

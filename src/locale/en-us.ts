@@ -23,9 +23,10 @@ export const enMessage = {
   back: 'Go back',
   save: 'Save',
   error: {
-    unauthorized: 'you are not authorized',
-    forbidden: 'forbidden',
-    notFound: 'not found',
-    serverError: 'Internal Server Error'
+    unauthorized: 'You are not authorized',
+    forbidden: 'Forbidden',
+    notFound: 'Not found',
+    serverError: 'Internal Server Error',
+    badCredentials: 'Bad Credentials'
   }
 }
