@@ -20,7 +20,7 @@
             </div>
           </el-col>
           <el-col :span="3">
-            {{ currentDate.toLocaleDateString() }}
+            {{ currentDate }}
           </el-col>
           <el-col :span="5">
             <el-radio-group v-model="localeName" @change="switchLocale">

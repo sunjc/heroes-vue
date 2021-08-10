@@ -14,8 +14,12 @@ export default defineComponent({
       supportLocales: [
         {code: enLocale.name, label: 'English'},
         {code: zhLocale.name, label: '中文'}
-      ],
-      currentDate: new Date()
+      ]
+    }
+  },
+  computed: {
+    currentDate(): string {
+      return new Date().toLocaleDateString();
     }
   },
   methods: {
