@@ -28,5 +28,5 @@ export function onError(err: any, instance: ComponentPublicInstance | null, info
 }
 
 export function onWarn(msg: string, instance: ComponentPublicInstance | null, trace: string) {
-  console.warn(msg);
+  console.warn(msg, trace);
 }
