@@ -3,6 +3,8 @@ import {Hero} from '@/model/Hero';
 import * as heroService from '@/service/HeroService';
 
 export default defineComponent({
+  name: 'HeroDetail',
+
   data() {
     return {
       hero: {} as Hero

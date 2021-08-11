@@ -4,6 +4,8 @@ import {PageRequest} from '@/utils/page';
 import * as heroService from '@/service/HeroService';
 
 export default defineComponent({
+  name: 'Heroes',
+
   data() {
     return {
       heroes: [] as Hero[],

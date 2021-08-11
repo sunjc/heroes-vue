@@ -3,6 +3,8 @@ import {Credentials} from '@/model/Credentials';
 import * as authService from '@/service/AuthService'
 
 export default defineComponent({
+  name: 'Login',
+
   data() {
     return {
       user: {} as Credentials,
