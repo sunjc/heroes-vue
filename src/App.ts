@@ -1,10 +1,17 @@
 import {defineComponent} from 'vue';
-import {ElConfigProvider} from 'element-plus';
+import {ElCol, ElConfigProvider, ElContainer, ElHeader, ElMain, ElRadioButton, ElRadioGroup, ElRow} from 'element-plus';
 import enLocale from 'element-plus/lib/locale/lang/en'
 import zhLocale from 'element-plus/lib/locale/lang/zh-cn'
 
 export default defineComponent({
   components: {
+    ElCol,
+    ElContainer,
+    ElHeader,
+    ElMain,
+    ElRadioButton,
+    ElRadioGroup,
+    ElRow,
     [ElConfigProvider.name]: ElConfigProvider,
   },
   data() {

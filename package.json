@@ -1,44 +1,29 @@
 {
   "name": "heroes-vue",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "core-js": "^3.6.5",
-    "element-plus": "^1.0.2-beta.70",
-    "vue": "^3.2.1",
-    "vue-class-component": "^8.0.0-0",
+    "axios": "^0.21.4",
+    "element-plus": "^1.1.0-beta.9",
+    "vue": "^3.2.9",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^5.2.4",
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "@vue/cli-plugin-babel": "~4.5.13",
-    "@vue/cli-plugin-e2e-cypress": "~4.5.13",
-    "@vue/cli-plugin-eslint": "~4.5.13",
-    "@vue/cli-plugin-router": "~4.5.13",
-    "@vue/cli-plugin-typescript": "~4.5.13",
-    "@vue/cli-plugin-unit-mocha": "~4.5.13",
-    "@vue/cli-service": "~4.5.13",
-    "@vue/compiler-sfc": "^3.1.5",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "@vue/test-utils": "^2.0.0-0",
-    "babel-plugin-import": "^1.13.3",
-    "chai": "^4.1.2",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
-    "sass": "^1.27.0",
-    "sass-loader": "^10.0.4",
-    "typescript": "~4.1.5"
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "@vitejs/plugin-vue": "^1.6.1",
+    "@vue/compiler-sfc": "^3.2.9",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^7.17.0",
+    "sass": "^1.39.0",
+    "typescript": "^4.4.2",
+    "vite": "^2.5.3",
+    "vue-tsc": "^0.3.0"
   }
 }

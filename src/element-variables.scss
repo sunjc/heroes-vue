@@ -4,12 +4,12 @@ found in element-plus/packages/theme-chalk/src/common/var.scss.
 For example, to overwrite the theme color:
 */
 
-$--color-primary: hotpink;
+$--color-primary: #409eff;
 
 /* icon font path, required */
-$--font-path: '~element-plus/lib/theme-chalk/fonts';
+$--font-path: './element-plus/lib/theme-chalk/fonts';
 
-@import "~element-plus/packages/theme-chalk/src/index";
+@import "/node_modules/element-plus/packages/theme-chalk/src/index";
 
 :root {
   --el-table-font-color: black;
@@ -18,25 +18,19 @@ $--font-path: '~element-plus/lib/theme-chalk/fonts';
 
 .el-table {
   .cell {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 .el-table--border {
-  th:first-child, td:first-child {
+  .el-table__cell:first-child {
     .cell {
-      padding-left: 0px;
+      padding-left: 0;
     }
   }
 }
 
-.el-table--small {
-  th {
-    padding: 2px;
-  }
-
-  td {
-    padding: 2px;
-  }
+.el-table--small .el-table__cell {
+  padding: 2px;
 }

@@ -1,7 +1,7 @@
 import enLocale from 'element-plus/lib/locale/lang/en';
 import zhLocale from 'element-plus/lib/locale/lang/zh-cn';
-import {enMessage} from '@/locale/en-us';
-import {zhMessage} from '@/locale/zh-cn';
+import {enMessage} from './en-us';
+import {zhMessage} from './zh-cn';
 
 export const messages = {
   [enLocale.name]: {

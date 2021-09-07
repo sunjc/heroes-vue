@@ -1,5 +1,5 @@
 import {defineComponent} from 'vue';
-import HelloWorld from '@/components/HelloWorld/HelloWorld.vue'; // @ is an alias to /src
+import HelloWorld from '../../components/HelloWorld/HelloWorld.vue';
 
 export default defineComponent({
   name: 'About',

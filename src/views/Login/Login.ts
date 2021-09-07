@@ -1,9 +1,16 @@
 import {defineComponent} from 'vue';
-import {Credentials} from '@/model/Credentials';
-import * as authService from '@/service/AuthService'
+import {Credentials} from '../../model/Credentials';
+import * as authService from '../../service/AuthService'
+import {ElForm, ElFormItem, ElInput} from 'element-plus';
 
 export default defineComponent({
   name: 'Login',
+
+  components: {
+    ElForm,
+    ElFormItem,
+    ElInput
+  },
 
   data() {
     return {

@@ -1,10 +1,19 @@
 import {defineComponent} from 'vue';
-import {Hero} from '@/model/Hero';
-import {PageRequest} from '@/utils/page';
-import * as heroService from '@/service/HeroService';
+import {Hero} from '../../model/Hero';
+import {PageRequest} from '../../utils/page';
+import * as heroService from '../../service/HeroService';
+import {ElCol, ElInput, ElRow, ElTable, ElTableColumn} from 'element-plus';
 
 export default defineComponent({
   name: 'Heroes',
+
+  components: {
+    ElCol,
+    ElInput,
+    ElRow,
+    ElTable,
+    ElTableColumn
+  },
 
   data() {
     return {
@@ -15,8 +24,8 @@ export default defineComponent({
     }
   },
 
-  mounted() {
-    this.getHeroes();
+  async mounted() {
+    await this.getHeroes();
   },
 
   methods: {
@@ -47,7 +56,7 @@ export default defineComponent({
         return;
       }
 
-      await heroService.addHero(this.hero as Hero)
+      await heroService.addHero(this.hero);
       this.pageable.page = 1;
       await this.getHeroes();
       this.hero.name = '';
@@ -59,7 +68,7 @@ export default defineComponent({
       await this.getHeroes();
     },
 
-    formatter(row: Hero, column: unknown, cellValue: string, index: number) {
+    formatter(row: Hero, column: unknown, cellValue: string) {
       return new Date(cellValue).toLocaleDateString();
     }
   }

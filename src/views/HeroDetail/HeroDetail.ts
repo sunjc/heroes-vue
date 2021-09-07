@@ -1,9 +1,16 @@
 import {defineComponent} from 'vue';
-import {Hero} from '@/model/Hero';
-import * as heroService from '@/service/HeroService';
+import {Hero} from '../../model/Hero';
+import * as heroService from '../../service/HeroService';
+import {ElForm, ElFormItem, ElInput} from 'element-plus';
 
 export default defineComponent({
   name: 'HeroDetail',
+
+  components: {
+    ElForm,
+    ElFormItem,
+    ElInput
+  },
 
   data() {
     return {
@@ -11,8 +18,8 @@ export default defineComponent({
     }
   },
 
-  mounted() {
-    this.getHero();
+  async mounted() {
+    await this.getHero();
   },
 
   methods: {
@@ -27,7 +34,7 @@ export default defineComponent({
 
     async save(): Promise<void> {
       if (this.hero) {
-        await heroService.updateHero(this.hero as Hero);
+        await heroService.updateHero(this.hero);
         this.goBack();
       }
     }

@@ -1,8 +1,8 @@
 import {defineComponent} from 'vue';
-import HeroSearch from '@/components/HeroSearch/HeroSearch.vue';
-import {Hero} from '@/model/Hero';
-import {PageRequest} from '@/utils/page';
-import * as heroService from '@/service/HeroService';
+import HeroSearch from '../../components/HeroSearch/HeroSearch.vue';
+import {Hero} from '../../model/Hero';
+import {PageRequest} from '../../utils/page';
+import * as heroService from '../../service/HeroService';
 
 export default defineComponent({
   name: 'Dashboard',
@@ -17,8 +17,8 @@ export default defineComponent({
     }
   },
 
-  mounted() {
-    this.getHeroes();
+  async mounted() {
+    await this.getHeroes();
   },
 
   methods: {

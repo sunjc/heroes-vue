@@ -19,7 +19,7 @@
     <el-table :data="heroes" style="width: 100%" row-key="index" size="small" @sort-change="sortChanged"
               :default-sort="{prop: 'name', order: 'ascending'}"
               stripe border highlight-current-row>
-      <el-table-column type="index" :label="$t('message.no')" header-align="center" width="30"></el-table-column>
+      <el-table-column type="index" :label="$t('message.no')" align="center" width="35"></el-table-column>
       <el-table-column prop="name" :label="$t('message.name')" header-align="center" sortable="custom"
                        :sort-orders="['ascending', 'descending']">
         <template #default="scope">
