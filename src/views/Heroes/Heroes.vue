@@ -13,7 +13,7 @@
   </n-form>
 
   <div class="heroes">
-    <n-data-table remote size="small" :loading="loading" :columns="columns" :data="heroes" :row-key="rowKey"
+    <n-data-table size="small" :loading="loading" :columns="columns" :data="heroes" :row-key="rowKey"
                   @update:sorter="sortChanged"/>
     <pagination :page="pageable.page" :page-size="pageable.size" :item-count="itemCount"
                 @page-change="pageChanged" @size-change="sizeChanged"/>
