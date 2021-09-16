@@ -10,3 +10,4 @@
 </template>
 
 <script lang="ts" src="./Pagination.ts"></script>
+<style scoped lang="scss" src="./Pagination.scss"></style>

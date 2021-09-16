@@ -21,4 +21,4 @@
 </template>
 
 <script lang="ts" src="./Heroes.ts"></script>
-<style scoped lang="scss" src="./Heroes.scss"></style>
+<style lang="scss" src="./Heroes.scss"></style>
