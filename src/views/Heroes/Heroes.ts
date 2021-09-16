@@ -32,9 +32,11 @@ export default defineComponent({
       return [
         {
           title: this.$t('message.no'),
-          key: 'index',
           align: 'center',
-          width: 45
+          width: 45,
+          render(row: any, index: number) {
+            return h('span', index + 1)
+          }
         },
         {
           title: this.$t('message.name'),
@@ -86,10 +88,7 @@ export default defineComponent({
   methods: {
     async getHeroes(): Promise<void> {
       const page = await heroService.getHeroes(this.pageable);
-      this.heroes = page.content.map((hero, index) => {
-        hero.index = index + 1;
-        return hero;
-      });
+      this.heroes = page.content;
       this.itemCount = page.totalElements;
     },
 
