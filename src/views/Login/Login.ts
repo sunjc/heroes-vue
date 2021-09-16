@@ -1,15 +1,20 @@
 import {defineComponent} from 'vue';
+import {NButton, NForm, NFormItem, NIcon, NInput} from 'naive-ui';
+import {LockClosedOutline, Person} from '@vicons/ionicons5';
 import {Credentials} from '../../model/Credentials';
-import * as authService from '../../service/AuthService'
-import {ElForm, ElFormItem, ElInput} from 'element-plus';
+import * as authService from '../../service/AuthService';
 
 export default defineComponent({
   name: 'Login',
 
   components: {
-    ElForm,
-    ElFormItem,
-    ElInput
+    LockClosedOutline,
+    Person,
+    NButton,
+    NForm,
+    NFormItem,
+    NIcon,
+    NInput
   },
 
   data() {

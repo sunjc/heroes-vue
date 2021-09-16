@@ -1,14 +1,12 @@
 <template>
-  <el-config-provider :locale="locale">
-    <el-container>
-      <el-header height="130px">
-        <el-row>
-          <el-col :span="24">
+  <n-config-provider :locale="locale" :theme-overrides="themeOverrides">
+    <n-layout>
+      <n-layout-header height="130px">
+        <n-grid :cols="4">
+          <n-gi :span="4">
             <h1>{{ $t("message.title") }}</h1>
-          </el-col>
-        </el-row>
-        <el-row align="middle" :gutter="20">
-          <el-col :span="12">
+          </n-gi>
+          <n-gi :span="2">
             <div id="nav">
               <router-link to="/login">{{ $t("message.login") }}</router-link>
               |
@@ -18,24 +16,22 @@
               |
               <router-link to="/about">{{ $t("message.about") }}</router-link>
             </div>
-          </el-col>
-          <el-col :span="3">
+          </n-gi>
+          <n-gi>
             {{ currentDate }}
-          </el-col>
-          <el-col :span="5">
-            <el-radio-group v-model="localeName" @change="switchLocale">
-              <el-radio-button v-for="item in supportLocales" :key="item.code" :label="item.code">
+            <n-radio-group v-model:value="localeName" @change="switchLocale">
+              <n-radio-button v-for="item in supportLocales" :key="item.code" :value="item.code">
                 {{ item.label }}
-              </el-radio-button>
-            </el-radio-group>
-          </el-col>
-        </el-row>
-      </el-header>
-      <el-main>
+              </n-radio-button>
+            </n-radio-group>
+          </n-gi>
+        </n-grid>
+      </n-layout-header>
+      <n-layout-content>
         <router-view></router-view>
-      </el-main>
-    </el-container>
-  </el-config-provider>
+      </n-layout-content>
+    </n-layout>
+  </n-config-provider>
 </template>
 
 <script src="./App.ts"></script>

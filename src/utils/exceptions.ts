@@ -1,5 +1,5 @@
 import {ComponentPublicInstance} from '@vue/runtime-core';
-import {ElMessage} from 'element-plus';
+import {useMessage} from 'naive-ui';
 
 export function onError(err: any, instance: ComponentPublicInstance | null, info: string) {
   let message;
@@ -24,7 +24,7 @@ export function onError(err: any, instance: ComponentPublicInstance | null, info
       message = err.data.message;
       break;
   }
-  ElMessage(message);
+  useMessage().error(message);
 }
 
 export function onWarn(msg: string, instance: ComponentPublicInstance | null, trace: string) {

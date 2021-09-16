@@ -1,13 +1,12 @@
 <template>
-  <el-pagination
-      :current-page="currentPage"
-      :page-sizes="pageSizes"
+  <n-pagination
+      :page="page"
       :page-size="pageSize"
-      :total="total"
-      @current-change="currentChanged"
-      @size-change="sizeChanged"
-      layout="total, sizes, prev, pager, next"
-      align="right"/>
+      :item-count="itemCount"
+      :page-sizes="pageSizes"
+      @update:page="pageChanged"
+      @update:page-size="sizeChanged"
+      show-size-picker/>
 </template>
 
 <script lang="ts" src="./Pagination.ts"></script>

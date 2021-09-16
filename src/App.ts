@@ -1,42 +1,56 @@
 import {defineComponent} from 'vue';
-import {ElCol, ElConfigProvider, ElContainer, ElHeader, ElMain, ElRadioButton, ElRadioGroup, ElRow} from 'element-plus';
-import enLocale from 'element-plus/lib/locale/lang/en'
-import zhLocale from 'element-plus/lib/locale/lang/zh-cn'
+import {
+  enUS,
+  NConfigProvider,
+  NGi,
+  NGrid,
+  NLayout,
+  NLayoutContent,
+  NLayoutHeader,
+  NRadioButton,
+  NRadioGroup,
+  zhCN
+} from 'naive-ui';
+import {themeOverrides} from './utils/theme';
 
 export default defineComponent({
   components: {
-    ElCol,
-    ElContainer,
-    ElHeader,
-    ElMain,
-    ElRadioButton,
-    ElRadioGroup,
-    ElRow,
-    [ElConfigProvider.name]: ElConfigProvider,
+    NConfigProvider,
+    NGrid,
+    NGi,
+    NLayout,
+    NLayoutHeader,
+    NLayoutContent,
+    NRadioButton,
+    NRadioGroup,
   },
+
   data() {
     return {
-      locale: enLocale as any,
-      localeName: enLocale.name,
+      themeOverrides,
+      locale: enUS as any,
+      localeName: enUS.name,
       supportLocales: [
-        {code: enLocale.name, label: 'English'},
-        {code: zhLocale.name, label: '中文'}
+        {code: enUS.name, label: 'English'},
+        {code: zhCN.name, label: '中文'}
       ]
     }
   },
+
   computed: {
     currentDate(): string {
       return this.$d(new Date());
     }
   },
+
   methods: {
     switchLocale(): void {
       this.$i18n.locale = this.localeName;
 
-      if (this.localeName === zhLocale.name) {
-        this.locale = zhLocale;
+      if (this.localeName === zhCN.name) {
+        this.locale = zhCN;
       } else {
-        this.locale = enLocale;
+        this.locale = enUS;
       }
     }
   }

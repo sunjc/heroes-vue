@@ -1,21 +1,20 @@
-import enLocale from 'element-plus/lib/locale/lang/en';
-import zhLocale from 'element-plus/lib/locale/lang/zh-cn';
 import {enMessage} from './en-us';
 import {zhMessage} from './zh-cn';
+import {enUS, zhCN} from 'naive-ui';
 
 export const messages = {
-  [enLocale.name]: {
-    el: enLocale.el,
+  [enUS.name]: {
+    el: enUS.name,
     message: enMessage
   },
-  [zhLocale.name]: {
-    el: zhLocale.el,
+  [zhCN.name]: {
+    el: zhCN.name,
     message: zhMessage
   }
 }
 
 export const datetimeFormats = {
-  [enLocale.name]: {
+  [enUS.name]: {
     short: {
       year: 'numeric',
       month: 'short',
@@ -30,7 +29,7 @@ export const datetimeFormats = {
       minute: 'numeric'
     }
   },
-  [zhLocale.name]: {
+  [zhCN.name]: {
     short: {
       year: 'numeric',
       month: 'short',

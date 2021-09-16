@@ -1,13 +1,13 @@
 import {defineComponent} from 'vue';
+import {NInput} from 'naive-ui';
 import {Hero} from '../../model/Hero';
 import {searchHeroes} from '../../service/HeroService';
-import {ElInput} from 'element-plus';
 
 export default defineComponent({
   name: 'HeroSearch',
 
   components: {
-    ElInput
+    NInput
   },
 
   data() {

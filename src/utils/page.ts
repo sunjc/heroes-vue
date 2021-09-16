@@ -11,13 +11,22 @@ export interface Page<T> {
 export interface Pageable {
   page: number;
   size: number;
-  sort?: { prop: string, order: string | null };
+  sort?: { columnKey: string, order: string | null };
 }
 
 export class PageRequest implements Pageable {
-  page = 1;
-  size = DEFAULT_PAGE_SIZE;
-  sort?: { prop: string, order: string | null };
+  page: number;
+  size: number;
+  sort?: { columnKey: string, order: string | null };
+
+  constructor(page = 1, size = DEFAULT_PAGE_SIZE, sort?: { columnKey: string, order: string | null }) {
+    this.page = page;
+    this.size = size;
+
+    if (sort) {
+      this.sort = sort;
+    }
+  }
 }
 
 export function pageParams<T>(query?: T, pageable?: Pageable): URLSearchParams {
@@ -26,7 +35,7 @@ export function pageParams<T>(query?: T, pageable?: Pageable): URLSearchParams {
   params.append('size', pageable ? pageable.size.toString() : DEFAULT_PAGE_SIZE.toString());
 
   if (pageable && pageable.sort) {
-    params.append('sort', pageable.sort.order === 'ascending' ? `${pageable.sort.prop},ASC` : `${pageable.sort.prop},DESC`);
+    params.append('sort', pageable.sort.order === 'ascend' ? `${pageable.sort.columnKey},ASC` : `${pageable.sort.columnKey},DESC`);
   }
 
   if (query) {

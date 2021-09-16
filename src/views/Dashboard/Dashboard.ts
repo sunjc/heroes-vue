@@ -23,8 +23,7 @@ export default defineComponent({
 
   methods: {
     async getHeroes(): Promise<void> {
-      const pageable = new PageRequest();
-      pageable.size = 4;
+      const pageable = new PageRequest(1, 4);
 
       this.heroes = (await heroService.getHeroes(pageable)).content;
     }

@@ -1,15 +1,17 @@
 import {defineComponent} from 'vue';
+import {NButton, NForm, NFormItem, NInput, NSpace} from 'naive-ui';
 import {Hero} from '../../model/Hero';
 import * as heroService from '../../service/HeroService';
-import {ElForm, ElFormItem, ElInput} from 'element-plus';
 
 export default defineComponent({
   name: 'HeroDetail',
 
   components: {
-    ElForm,
-    ElFormItem,
-    ElInput
+    NButton,
+    NForm,
+    NFormItem,
+    NInput,
+    NSpace
   },
 
   data() {
@@ -34,7 +36,7 @@ export default defineComponent({
 
     async save(): Promise<void> {
       if (this.hero) {
-        await heroService.updateHero(this.hero);
+        await heroService.updateHero(this.hero as Hero);
         this.goBack();
       }
     }

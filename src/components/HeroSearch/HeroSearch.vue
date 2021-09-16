@@ -1,7 +1,7 @@
 <template>
   <div id="search-component">
     <label for="search-box">{{ $t("message.heroSearch") }}</label>
-    <el-input v-model.trim="name" id="search-box" @input="search()" class="search-box"/>
+    <n-input v-model:value.trim="name" id="search-box" @input="search()" class="search-box" clearable/>
 
     <ul class="search-result">
       <li v-for="hero in heroes" :key="hero.id">

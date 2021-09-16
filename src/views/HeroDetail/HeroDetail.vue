@@ -1,18 +1,20 @@
 <template>
   <div v-if="hero">
     <h2>{{ hero.name }} {{ $t("message.details") }} </h2>
-    <el-form :model="hero" label-position="right" label-width="100px">
-      <el-form-item :label="$t('message.id')">
+    <n-form :model="hero" label-placement="left" label-align="right" label-width="100">
+      <n-form-item :label="$t('message.id')">
         {{ hero.id }}
-      </el-form-item>
-      <el-form-item :label="$t('message.heroName')">
-        <el-input v-model="hero.name"/>
-      </el-form-item>
-      <el-form-item>
-        <el-button @click="goBack()">{{ $t("message.back") }}</el-button>
-        <el-button type="primary" v-if="$hasRole('ADMIN')" @click="save()">{{ $t("message.save") }}</el-button>
-      </el-form-item>
-    </el-form>
+      </n-form-item>
+      <n-form-item :label="$t('message.heroName')" path="name">
+        <n-input v-model:value.trim="hero.name"/>
+      </n-form-item>
+      <n-form-item>
+        <n-space>
+          <n-button @click="goBack()">{{ $t("message.back") }}</n-button>
+          <n-button type="primary" v-if="$hasRole('ADMIN')" @click="save()">{{ $t("message.save") }}</n-button>
+        </n-space>
+      </n-form-item>
+    </n-form>
   </div>
 </template>
 

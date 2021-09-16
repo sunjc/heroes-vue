@@ -1,6 +1,7 @@
 export interface Hero {
-    id: number;
-    name: string;
-    createdBy: string;
-    createdDate: Date;
+  index?: number;
+  id: number;
+  name: string;
+  createdBy: string;
+  createdDate: Date;
 }
