@@ -1,4 +1,5 @@
-import {defineComponent} from 'vue';
+import {computed, defineComponent, ref} from 'vue';
+import {useI18n} from 'vue-i18n';
 import {
   enUS,
   NConfigProvider,
@@ -27,33 +28,30 @@ export default defineComponent({
     NRadioGroup,
   },
 
-  data() {
+  setup() {
+    const {d} = useI18n()
+    const supportLocales = [
+      {name: enUS.name, label: 'English'},
+      {name: zhCN.name, label: '中文'}
+    ]
+    const locale = ref(zhCN)
+
+    const currentDate = computed(() => d(new Date))
+
+    const switchLocale = (): void => {
+      if (locale.value.name === zhCN.name) {
+        locale.value = zhCN;
+      } else {
+        locale.value = enUS;
+      }
+    }
+
     return {
       themeOverrides,
-      locale: enUS as any,
-      localeName: enUS.name,
-      supportLocales: [
-        {code: enUS.name, label: 'English'},
-        {code: zhCN.name, label: '中文'}
-      ]
-    }
-  },
-
-  computed: {
-    currentDate(): string {
-      return this.$d(new Date());
-    }
-  },
-
-  methods: {
-    switchLocale(): void {
-      this.$i18n.locale = this.localeName;
-
-      if (this.localeName === zhCN.name) {
-        this.locale = zhCN;
-      } else {
-        this.locale = enUS;
-      }
+      supportLocales,
+      locale,
+      currentDate,
+      switchLocale
     }
   }
 })
