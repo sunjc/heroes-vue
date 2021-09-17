@@ -1,4 +1,5 @@
-import {defineComponent} from 'vue';
+import {defineComponent, onMounted, ref} from 'vue';
+import {useRouter} from 'vue-router';
 import {NButton, NForm, NFormItem, NIcon, NInput} from 'naive-ui';
 import {LockClosedOutline, Person} from '@vicons/ionicons5';
 import {Credentials} from '../../model/Credentials';
@@ -18,8 +19,27 @@ export default defineComponent({
   },
 
   data() {
+    const loginForm = ref<any>(null);
+    const user = ref<Credentials>({} as Credentials)
+
+    const login = async (): Promise<void> => {
+      try {
+        await loginForm.value.validate()
+      } catch (error) {
+        return
+      }
+
+      await authService.login(user.value)
+      await useRouter().push('/dashboard')
+    }
+
+    onMounted(() => {
+      authService.logout()
+    })
+
     return {
-      user: {} as Credentials,
+      user,
+      login
     }
   },
 
@@ -33,24 +53,6 @@ export default defineComponent({
           {required: true, message: this.$t('message.passwordError'), trigger: 'blur'}
         ]
       };
-    }
-  },
-
-  mounted() {
-    authService.logout();
-  },
-
-  methods: {
-    async login(): Promise<void> {
-      const loginForm = this.$refs.loginForm as any;
-      try {
-        await loginForm.validate();
-      } catch (error) {
-        return;
-      }
-
-      await authService.login(this.user);
-      await this.$router.push('/dashboard');
     }
   }
 })

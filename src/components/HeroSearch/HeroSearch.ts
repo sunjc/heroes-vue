@@ -1,4 +1,4 @@
-import {defineComponent} from 'vue';
+import {defineComponent, ref} from 'vue';
 import {NInput} from 'naive-ui';
 import {Hero} from '../../model/Hero';
 import {searchHeroes} from '../../service/HeroService';
@@ -10,21 +10,23 @@ export default defineComponent({
     NInput
   },
 
-  data() {
-    return {
-      heroes: [] as Hero[],
-      name: ''
-    }
-  },
+  setup() {
+    const heroes = ref<Hero[]>([])
+    const name = ref('')
 
-  methods: {
-    async search() {
-      if (!this.name) {
-        this.heroes = [];
-        return;
+    const search = async () => {
+      if (!name.value) {
+        heroes.value = []
+        return
       }
 
-      this.heroes = await searchHeroes(this.name);
+      heroes.value = await searchHeroes(name.value)
+    }
+
+    return {
+      heroes,
+      name,
+      search
     }
   }
 })
