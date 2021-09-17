@@ -7,6 +7,7 @@ import {
   NLayout,
   NLayoutContent,
   NLayoutHeader,
+  NMessageProvider,
   NRadioButton,
   NRadioGroup,
   zhCN
@@ -21,6 +22,7 @@ export default defineComponent({
     NLayout,
     NLayoutHeader,
     NLayoutContent,
+    NMessageProvider,
     NRadioButton,
     NRadioGroup,
   },
