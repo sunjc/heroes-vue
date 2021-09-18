@@ -1,31 +1,33 @@
-import {ComponentPublicInstance} from '@vue/runtime-core';
+import {ComponentPublicInstance} from '@vue/runtime-core'
+import {useI18n} from 'vue-i18n'
 
 export function onError(err: any, instance: ComponentPublicInstance | null, info: string) {
-  let message;
+  const {t} = useI18n()
+  let message
   switch (err.status) {
     case 401:
-      if (err.data.error === "BadCredentialsException") {
-        message = instance?.$t('message.error.badCredentials');
+      if (err.data.error === 'BadCredentialsException') {
+        message = t('message.error.badCredentials')
       } else {
-        message = instance?.$t('message.error.unauthorized');
+        message = t('message.error.unauthorized')
       }
-      break;
+      break
     case 403:
-      message = instance?.$t('message.error.forbidden');
-      break;
+      message = t('message.error.forbidden')
+      break
     case 404:
-      message = instance?.$t('message.error.notFound')
-      break;
+      message = t('message.error.notFound')
+      break
     case 500:
-      message = instance?.$t('message.error.serverError');
-      break;
+      message = t('message.error.serverError')
+      break
     default:
-      message = err.data.message;
-      break;
+      message = err.data.message
+      break
   }
-  instance?.$message.error(message);
+  instance?.$message.error(message)
 }
 
 export function onWarn(msg: string, instance: ComponentPublicInstance | null, trace: string) {
-  console.warn(msg, trace);
+  console.warn(msg, trace)
 }

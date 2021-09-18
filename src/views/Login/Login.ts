@@ -1,9 +1,10 @@
-import {defineComponent, onMounted, ref} from 'vue';
-import {useRouter} from 'vue-router';
-import {NButton, NForm, NFormItem, NIcon, NInput} from 'naive-ui';
-import {LockClosedOutline, Person} from '@vicons/ionicons5';
-import {Credentials} from '../../model/Credentials';
-import * as authService from '../../service/AuthService';
+import {computed, defineComponent, onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {useI18n} from 'vue-i18n'
+import {NButton, NForm, NFormItem, NIcon, NInput} from 'naive-ui'
+import {LockClosedOutline, Person} from '@vicons/ionicons5'
+import {Credentials} from '../../model/Credentials'
+import * as authService from '../../service/AuthService'
 
 export default defineComponent({
   name: 'Login',
@@ -18,9 +19,19 @@ export default defineComponent({
     NInput
   },
 
-  data() {
-    const loginForm = ref<any>(null);
+  setup() {
+    const {t} = useI18n()
+    const router = useRouter()
+    const loginForm = ref<any>(null)
     const user = ref<Credentials>({} as Credentials)
+    const rules = computed(() => ({
+      username: [
+        {required: true, message: t('message.usernameError'), trigger: 'blur'}
+      ],
+      password: [
+        {required: true, message: t('message.passwordError'), trigger: 'blur'}
+      ]
+    }))
 
     const login = async (): Promise<void> => {
       try {
@@ -30,7 +41,7 @@ export default defineComponent({
       }
 
       await authService.login(user.value)
-      await useRouter().push('/dashboard')
+      await router.push('/dashboard')
     }
 
     onMounted(() => {
@@ -38,21 +49,11 @@ export default defineComponent({
     })
 
     return {
+      t,
+      loginForm,
       user,
+      rules,
       login
-    }
-  },
-
-  computed: {
-    rules() {
-      return {
-        username: [
-          {required: true, message: this.$t('message.usernameError'), trigger: 'blur'}
-        ],
-        password: [
-          {required: true, message: this.$t('message.passwordError'), trigger: 'blur'}
-        ]
-      };
     }
   }
 })

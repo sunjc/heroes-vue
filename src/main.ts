@@ -1,19 +1,20 @@
 import {createApp} from 'vue'
-import {createI18n} from 'vue-i18n';
-import {enUS, useMessage} from 'naive-ui';
-import {MessageApiInjection} from 'naive-ui/lib/message/src/MessageProvider';
+import {createI18n} from 'vue-i18n'
+import {enUS, useMessage} from 'naive-ui'
+import {MessageApiInjection} from 'naive-ui/lib/message/src/MessageProvider'
 import App from './App.vue'
 import router from './router'
-import axios from './utils/axios';
-import {onError, onWarn} from './utils/exceptions';
-import {hasRole} from './service/AuthService';
-import Pagination from './components/Pagination/Pagination.vue';
-import {messages} from './locale/messages';
+import axios from './utils/axios'
+import {onError, onWarn} from './utils/exceptions'
+import {hasRole} from './service/AuthService'
+import Pagination from './components/Pagination/Pagination.vue'
+import {messages} from './locale/messages'
 import './assets/styles.scss'
 
-const message = useMessage();
+const message = useMessage()
 
 const i18n = createI18n({
+  legacy: false,
   locale: enUS.name,
   fallbackLocale: enUS.name,
   messages,

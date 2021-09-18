@@ -1,6 +1,6 @@
-import {defineComponent} from 'vue';
-import {NPagination} from 'naive-ui';
-import {DEFAULT_PAGE_SIZE, PAGE_SIZES} from '../../utils/page';
+import {defineComponent} from 'vue'
+import {NPagination} from 'naive-ui'
+import {DEFAULT_PAGE_SIZE, PAGE_SIZES} from '../../utils/page'
 
 export default defineComponent({
   name: 'Pagination',
@@ -28,19 +28,19 @@ export default defineComponent({
 
   emits: ['pageChange', 'sizeChange'],
 
-  data() {
-    return {
-      pageSizes: PAGE_SIZES
+  setup(props, context) {
+    const pageChanged = (page: number) => {
+      context.emit('pageChange', page)
     }
-  },
 
-  methods: {
-    pageChanged(page: number) {
-      this.$emit('pageChange', page);
-    },
+    const sizeChanged = (size: number) => {
+      context.emit('sizeChange', size)
+    }
 
-    sizeChanged(size: number) {
-      this.$emit('sizeChange', size)
+    return {
+      pageSizes: PAGE_SIZES,
+      pageChanged,
+      sizeChanged
     }
   }
 })

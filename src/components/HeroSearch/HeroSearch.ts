@@ -1,7 +1,8 @@
-import {defineComponent, ref} from 'vue';
-import {NInput} from 'naive-ui';
-import {Hero} from '../../model/Hero';
-import {searchHeroes} from '../../service/HeroService';
+import {defineComponent, ref} from 'vue'
+import {useI18n} from 'vue-i18n'
+import {NInput} from 'naive-ui'
+import {Hero} from '../../model/Hero'
+import {searchHeroes} from '../../service/HeroService'
 
 export default defineComponent({
   name: 'HeroSearch',
@@ -11,6 +12,7 @@ export default defineComponent({
   },
 
   setup() {
+    const {t} = useI18n()
     const heroes = ref<Hero[]>([])
     const name = ref('')
 
@@ -24,6 +26,7 @@ export default defineComponent({
     }
 
     return {
+      t,
       heroes,
       name,
       search

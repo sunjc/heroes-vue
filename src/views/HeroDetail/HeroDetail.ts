@@ -1,8 +1,9 @@
-import {defineComponent, onMounted, ref} from 'vue';
-import {useRoute, useRouter} from 'vue-router';
-import {NButton, NForm, NFormItem, NInput, NSpace} from 'naive-ui';
-import {Hero} from '../../model/Hero';
-import * as heroService from '../../service/HeroService';
+import {defineComponent, onMounted, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useI18n} from 'vue-i18n'
+import {NButton, NForm, NFormItem, NInput, NSpace} from 'naive-ui'
+import {Hero} from '../../model/Hero'
+import * as heroService from '../../service/HeroService'
 
 export default defineComponent({
   name: 'HeroDetail',
@@ -16,6 +17,7 @@ export default defineComponent({
   },
 
   setup() {
+    const {t} = useI18n()
     const route = useRoute()
     const router = useRouter()
     const hero = ref<Hero>({} as Hero)
@@ -41,6 +43,7 @@ export default defineComponent({
     })
 
     return {
+      t,
       hero,
       getHero,
       save,

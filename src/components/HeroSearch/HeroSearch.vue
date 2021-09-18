@@ -1,6 +1,6 @@
 <template>
   <div id="search-component">
-    <label for="search-box">{{ $t("message.heroSearch") }}</label>
+    <label for="search-box">{{ t("message.heroSearch") }}</label>
     <n-input v-model:value.trim="name" id="search-box" @input="search()" class="search-box" clearable/>
 
     <ul class="search-result">

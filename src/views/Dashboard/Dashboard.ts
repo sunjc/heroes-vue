@@ -1,8 +1,9 @@
-import {defineComponent, onMounted, ref} from 'vue';
-import HeroSearch from '../../components/HeroSearch/HeroSearch.vue';
-import {Hero} from '../../model/Hero';
-import {PageRequest} from '../../utils/page';
-import * as heroService from '../../service/HeroService';
+import {defineComponent, onMounted, ref} from 'vue'
+import {useI18n} from 'vue-i18n'
+import HeroSearch from '../../components/HeroSearch/HeroSearch.vue'
+import {Hero} from '../../model/Hero'
+import {PageRequest} from '../../utils/page'
+import * as heroService from '../../service/HeroService'
 
 export default defineComponent({
   name: 'Dashboard',
@@ -12,11 +13,12 @@ export default defineComponent({
   },
 
   setup() {
+    const {t} = useI18n()
     const heroes = ref<Hero[]>([])
-    const pageable = new PageRequest(1, 4);
+    const pageable = new PageRequest(1, 4)
 
     const getHeroes = async (): Promise<void> => {
-      heroes.value = (await heroService.getHeroes(pageable)).content;
+      heroes.value = (await heroService.getHeroes(pageable)).content
     }
 
     onMounted(async () => {
@@ -24,6 +26,7 @@ export default defineComponent({
     })
 
     return {
+      t,
       heroes,
       getHeroes
     }

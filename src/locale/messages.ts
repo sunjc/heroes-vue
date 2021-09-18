@@ -1,6 +1,6 @@
-import {enMessage} from './en-us';
-import {zhMessage} from './zh-cn';
-import {enUS, zhCN} from 'naive-ui';
+import {enMessage} from './en-us'
+import {zhMessage} from './zh-cn'
+import {enUS, zhCN} from 'naive-ui'
 
 export const messages = {
   [enUS.name]: {

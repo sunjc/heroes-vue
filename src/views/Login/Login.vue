@@ -1,7 +1,7 @@
 <template>
   <n-form :model="user" :rules="rules" ref="loginForm" class="login-form">
     <n-form-item path="username">
-      <n-input v-model:value="user.username" :placeholder="$t('message.username')">
+      <n-input v-model:value="user.username" :placeholder="t('message.username')">
         <template #prefix>
           <n-icon>
             <person/>
@@ -11,7 +11,7 @@
     </n-form-item>
     <n-form-item path="password">
       <n-input type="password" v-model:value="user.password" @keydown.enter="login"
-               :placeholder="$t('message.password')" show-password-on="mousedown">
+               :placeholder="t('message.password')" show-password-on="mousedown">
         <template #prefix>
           <n-icon>
             <lock-closed-outline/>
@@ -20,10 +20,10 @@
       </n-input>
     </n-form-item>
     <n-form-item>
-      ({{ $t("message.username") }}/{{ $t("message.password") }}: admin/admin, jason/jason)
+      ({{ t("message.username") }}/{{ t("message.password") }}: admin/admin, jason/jason)
     </n-form-item>
     <n-form-item>
-      <n-button type="primary" class="login-form-button" @click="login">{{ $t("message.login") }}</n-button>
+      <n-button type="primary" class="login-form-button" @click="login">{{ t("message.login") }}</n-button>
     </n-form-item>
   </n-form>
 </template>
