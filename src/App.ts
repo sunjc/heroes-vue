@@ -1,5 +1,5 @@
-import {defineComponent} from 'vue';
-import {ElCol, ElConfigProvider, ElContainer, ElHeader, ElMain, ElRadioButton, ElRadioGroup, ElRow} from 'element-plus';
+import {defineComponent} from 'vue'
+import {ElCol, ElConfigProvider, ElContainer, ElHeader, ElMain, ElRadioButton, ElRadioGroup, ElRow} from 'element-plus'
 import enLocale from 'element-plus/lib/locale/lang/en'
 import zhLocale from 'element-plus/lib/locale/lang/zh-cn'
 
@@ -26,17 +26,17 @@ export default defineComponent({
   },
   computed: {
     currentDate(): string {
-      return this.$d(new Date());
+      return this.$d(new Date())
     }
   },
   methods: {
     switchLocale(): void {
-      this.$i18n.locale = this.localeName;
+      this.$i18n.locale = this.localeName
 
       if (this.localeName === zhLocale.name) {
-        this.locale = zhLocale;
+        this.locale = zhLocale
       } else {
-        this.locale = enLocale;
+        this.locale = enLocale
       }
     }
   }

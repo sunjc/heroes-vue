@@ -1,7 +1,7 @@
-import {defineComponent} from 'vue';
-import {Credentials} from '../../model/Credentials';
+import {defineComponent} from 'vue'
+import {Credentials} from '../../model/Credentials'
 import * as authService from '../../service/AuthService'
-import {ElForm, ElFormItem, ElInput} from 'element-plus';
+import {ElForm, ElFormItem, ElInput} from 'element-plus'
 
 export default defineComponent({
   name: 'Login',
@@ -27,25 +27,25 @@ export default defineComponent({
         password: [
           {required: true, message: this.$t('message.passwordError'), trigger: 'blur'}
         ]
-      };
+      }
     }
   },
 
   mounted() {
-    authService.logout();
+    authService.logout()
   },
 
   methods: {
     async login(): Promise<void> {
-      const loginForm = this.$refs.loginForm as any;
+      const loginForm = this.$refs.loginForm as any
       try {
-        await loginForm.validate();
+        await loginForm.validate()
       } catch (error) {
-        return;
+        return
       }
 
-      await authService.login(this.user);
-      await this.$router.push('/dashboard');
+      await authService.login(this.user)
+      await this.$router.push('/dashboard')
     }
   }
 })

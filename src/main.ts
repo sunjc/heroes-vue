@@ -1,17 +1,17 @@
 import {createApp} from 'vue'
-import {createI18n} from 'vue-i18n';
+import {createI18n} from 'vue-i18n'
 import {ElButton, ElLoading, ElMessage, ElPagination} from 'element-plus'
 import 'element-plus/dist/index.css'
-import enLocale from 'element-plus/lib/locale/lang/en';
+import enLocale from 'element-plus/lib/locale/lang/en'
 import './assets/styles.scss'
 import './element-variables.scss'
 import App from './App.vue'
 import router from './router'
-import axios from './utils/axios';
-import {hasRole} from './service/AuthService';
-import Pagination from './components/Pagination/Pagination.vue';
-import {messages} from './locale/messages';
-import {onError, onWarn} from './utils/exceptions';
+import axios from './utils/axios'
+import {hasRole} from './service/AuthService'
+import Pagination from './components/Pagination/Pagination.vue'
+import {messages} from './locale/messages'
+import {onError, onWarn} from './utils/exceptions'
 
 const i18n = createI18n({
   locale: enLocale.name,
@@ -36,11 +36,11 @@ app.use(i18n)
 app.component('Pagination', Pagination)
 
 // global properties
-app.config.globalProperties.$message = ElMessage;
+app.config.globalProperties.$message = ElMessage
 app.config.globalProperties.$http = axios
-app.config.globalProperties.$hasRole = hasRole;
-app.config.errorHandler = onError;
-app.config.warnHandler = onWarn;
+app.config.globalProperties.$hasRole = hasRole
+app.config.errorHandler = onError
+app.config.warnHandler = onWarn
 
 app.mount('#app')
 

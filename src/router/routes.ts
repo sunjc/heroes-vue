@@ -1,8 +1,8 @@
-import {RouteRecordRaw} from 'vue-router';
-import Login from '../views/Login/Login.vue';
-import Dashboard from '../views/Dashboard/Dashboard.vue';
-import HeroDetail from '../views/HeroDetail/HeroDetail.vue';
-import Heroes from '../views/Heroes/Heroes.vue';
+import {RouteRecordRaw} from 'vue-router'
+import Login from '../views/Login/Login.vue'
+import Dashboard from '../views/Dashboard/Dashboard.vue'
+import HeroDetail from '../views/HeroDetail/HeroDetail.vue'
+import Heroes from '../views/Heroes/Heroes.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
