@@ -1,13 +1,8 @@
 import {defineComponent} from 'vue'
-import {NPagination} from 'naive-ui'
 import {DEFAULT_PAGE_SIZE, PAGE_SIZES} from '../../utils/page'
 
 export default defineComponent({
   name: 'Pagination',
-
-  components: {
-    NPagination
-  },
 
   props: {
     page: {

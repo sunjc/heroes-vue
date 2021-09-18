@@ -1,6 +1,6 @@
 import {computed, defineComponent, h, onMounted, reactive, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
-import {NButton, NDataTable, NForm, NFormItem, NIcon, NInput} from 'naive-ui'
+import {NButton, NIcon} from 'naive-ui'
 import {CloseCircleOutline} from '@vicons/ionicons5'
 import {Hero} from '../../model/Hero'
 import * as heroService from '../../service/HeroService'
@@ -8,14 +8,6 @@ import {PageRequest} from '../../utils/page'
 
 export default defineComponent({
   name: 'Heroes',
-
-  components: {
-    NButton,
-    NDataTable,
-    NForm,
-    NFormItem,
-    NInput
-  },
 
   setup() {
     const {t} = useI18n()
@@ -49,7 +41,7 @@ export default defineComponent({
         align: 'center',
         width: 100,
         render(row: any): any {
-          return h('span', {}, row.createdDate.substr(0, 10))
+          return h('span', row.createdDate.substr(0, 10))
         }
       },
       {

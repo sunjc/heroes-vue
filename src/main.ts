@@ -1,6 +1,18 @@
 import {createApp} from 'vue'
 import {createI18n} from 'vue-i18n'
-import {enUS, useMessage} from 'naive-ui'
+import {
+  create,
+  enUS,
+  NButton,
+  NDataTable,
+  NForm,
+  NFormItem,
+  NIcon,
+  NInput,
+  NPagination,
+  NSpace,
+  useMessage
+} from 'naive-ui'
 import {MessageApiInjection} from 'naive-ui/lib/message/src/MessageProvider'
 import App from './App.vue'
 import router from './router'
@@ -20,6 +32,19 @@ const i18n = createI18n({
   messages,
 })
 
+const naive = create({
+  components: [
+    NButton,
+    NDataTable,
+    NForm,
+    NFormItem,
+    NIcon,
+    NInput,
+    NPagination,
+    NSpace
+  ]
+})
+
 const app = createApp(App)
 // router
 app.use(router)
@@ -27,7 +52,10 @@ app.use(router)
 // i18n
 app.use(i18n)
 
-// global components
+// Naive UI components
+app.use(naive)
+
+// custom global components
 app.component('Pagination', Pagination)
 
 // global properties

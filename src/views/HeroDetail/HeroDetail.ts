@@ -1,20 +1,11 @@
 import {defineComponent, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {useI18n} from 'vue-i18n'
-import {NButton, NForm, NFormItem, NInput, NSpace} from 'naive-ui'
 import {Hero} from '../../model/Hero'
 import * as heroService from '../../service/HeroService'
 
 export default defineComponent({
   name: 'HeroDetail',
-
-  components: {
-    NButton,
-    NForm,
-    NFormItem,
-    NInput,
-    NSpace
-  },
 
   setup() {
     const {t} = useI18n()

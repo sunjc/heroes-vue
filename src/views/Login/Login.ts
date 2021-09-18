@@ -1,7 +1,6 @@
 import {computed, defineComponent, onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
 import {useI18n} from 'vue-i18n'
-import {NButton, NForm, NFormItem, NIcon, NInput} from 'naive-ui'
 import {LockClosedOutline, Person} from '@vicons/ionicons5'
 import {Credentials} from '../../model/Credentials'
 import * as authService from '../../service/AuthService'
@@ -12,11 +11,6 @@ export default defineComponent({
   components: {
     LockClosedOutline,
     Person,
-    NButton,
-    NForm,
-    NFormItem,
-    NIcon,
-    NInput
   },
 
   setup() {
