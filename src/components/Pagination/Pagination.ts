@@ -23,19 +23,19 @@ export default defineComponent({
 
   emits: ['currentChange', 'sizeChange'],
 
-  data() {
-    return {
-      pageSizes: PAGE_SIZES
+  setup(props, {emit}) {
+    function pageChanged(page: number) {
+      emit('currentChange', page)
     }
-  },
 
-  methods: {
-    currentChanged(page: number) {
-      this.$emit('currentChange', page)
-    },
+    function sizeChanged(size: number) {
+      emit('sizeChange', size)
+    }
 
-    sizeChanged(size: number) {
-      this.$emit('sizeChange', size)
+    return {
+      pageSizes: PAGE_SIZES,
+      pageChanged,
+      sizeChanged
     }
   }
 })

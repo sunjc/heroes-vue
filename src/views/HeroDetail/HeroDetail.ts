@@ -1,7 +1,9 @@
-import {defineComponent} from 'vue'
+import {defineComponent, onMounted, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useI18n} from 'vue-i18n'
+import {ElForm, ElFormItem, ElInput} from 'element-plus'
 import {Hero} from '../../model/Hero'
 import * as heroService from '../../service/HeroService'
-import {ElForm, ElFormItem, ElInput} from 'element-plus'
 
 export default defineComponent({
   name: 'HeroDetail',
@@ -12,31 +14,38 @@ export default defineComponent({
     ElInput
   },
 
-  data() {
-    return {
-      hero: {} as Hero
+  setup() {
+    const {t} = useI18n()
+    const route = useRoute()
+    const router = useRouter()
+    const hero = ref<Hero>({} as Hero)
+
+    async function getHero(): Promise<void> {
+      const id = parseInt(route.params.id as string, 10)
+      hero.value = await heroService.getHero(id)
     }
-  },
 
-  async mounted() {
-    await this.getHero()
-  },
-
-  methods: {
-    async getHero(): Promise<void> {
-      const id = parseInt(this.$route.params.id as string, 10)
-      this.hero = await heroService.getHero(id)
-    },
-
-    goBack(): void {
-      this.$router.back()
-    },
-
-    async save(): Promise<void> {
-      if (this.hero) {
-        await heroService.updateHero(this.hero)
-        this.goBack()
+    async function save(): Promise<void> {
+      if (hero.value) {
+        await heroService.updateHero(hero.value)
+        goBack()
       }
+    }
+
+    function goBack(): void {
+      router.back()
+    }
+
+    onMounted(async () => {
+      await getHero()
+    })
+
+    return {
+      t,
+      hero,
+      getHero,
+      save,
+      goBack
     }
   }
 })

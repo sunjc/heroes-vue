@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <img alt="Vue logo" src="../../assets/logo.png">
-    <hello-world msg="Welcome to iTRunner + TypeScript App"/>
+    <hello-world msg="Welcome to VUE 3 + Element Plus + TypeScript App"/>
   </div>
 </template>
 

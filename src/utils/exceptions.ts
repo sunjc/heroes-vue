@@ -1,32 +1,31 @@
 import {ComponentPublicInstance} from '@vue/runtime-core'
-import {ElMessage} from 'element-plus'
 
-export function onError(err: any, instance: ComponentPublicInstance | null, info: string) {
+export function onError(err: any, vm: ComponentPublicInstance | null, info: string) {
   let message
   switch (err.status) {
     case 401:
       if (err.data.error === "BadCredentialsException") {
-        message = instance?.$t('message.error.badCredentials')
+        message = vm?.$t('message.error.badCredentials')
       } else {
-        message = instance?.$t('message.error.unauthorized')
+        message = vm?.$t('message.error.unauthorized')
       }
       break
     case 403:
-      message = instance?.$t('message.error.forbidden')
+      message = vm?.$t('message.error.forbidden')
       break
     case 404:
-      message = instance?.$t('message.error.notFound')
+      message = vm?.$t('message.error.notFound')
       break
     case 500:
-      message = instance?.$t('message.error.serverError')
+      message = vm?.$t('message.error.serverError')
       break
     default:
       message = err.data.message
       break
   }
-  ElMessage(message)
+  vm?.$message.error(message)
 }
 
-export function onWarn(msg: string, instance: ComponentPublicInstance | null, trace: string) {
+export function onWarn(msg: string, vm: ComponentPublicInstance | null, trace: string) {
   console.warn(msg, trace)
 }

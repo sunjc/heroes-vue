@@ -1,8 +1,9 @@
-import {defineComponent} from 'vue'
+import {defineComponent, onMounted, reactive, ref} from 'vue'
+import {useI18n} from 'vue-i18n'
+import {ElCol, ElInput, ElRow, ElTable, ElTableColumn} from 'element-plus'
 import {Hero} from '../../model/Hero'
 import {PageRequest} from '../../utils/page'
 import * as heroService from '../../service/HeroService'
-import {ElCol, ElInput, ElRow, ElTable, ElTableColumn} from 'element-plus'
 
 export default defineComponent({
   name: 'Heroes',
@@ -15,61 +16,73 @@ export default defineComponent({
     ElTableColumn
   },
 
-  data() {
-    return {
-      heroes: [] as Hero[],
-      hero: {} as Hero,
-      pageable: new PageRequest(),
-      totalItems: 0
+  setup() {
+    const {t} = useI18n()
+    const heroes = ref<Hero[]>([])
+    const hero = ref<Hero>({} as Hero)
+    const total = ref(0)
+    const pageable = reactive(new PageRequest())
+
+    async function getHeroes(): Promise<void> {
+      const page = await heroService.getHeroes(pageable)
+      heroes.value = page.content
+      total.value = page.totalElements
     }
-  },
 
-  async mounted() {
-    await this.getHeroes()
-  },
+    async function pageChanged(page: number): Promise<void> {
+      pageable.page = page
+      await getHeroes()
+    }
 
-  methods: {
-    async getHeroes(): Promise<void> {
-      const page = await heroService.getHeroes(this.pageable)
-      this.heroes = page.content
-      this.totalItems = page.totalElements
-    },
+    async function sizeChanged(size: number): Promise<void> {
+      pageable.page = 1
+      pageable.size = size
+      await getHeroes()
+    }
 
-    async pageChanged(page: number): Promise<void> {
-      this.pageable.page = page
-      await this.getHeroes()
-    },
+    async function sortChanged(sort: { prop: string, order: string }) {
+      pageable.sort = sort
+      pageable.page = 1
+      await getHeroes()
+    }
 
-    async sizeChanged(size: number): Promise<void> {
-      this.pageable.size = size
-      await this.getHeroes()
-    },
-
-    async sortChanged(sort: { column: unknown, prop: string, order: string }): Promise<void> {
-      this.pageable.sort = sort
-      this.pageable.page = 1
-      await this.getHeroes()
-    },
-
-    async addHero(): Promise<void> {
-      if (!this.hero.name) {
+    async function addHero(): Promise<void> {
+      if (!hero.value.name) {
         return
       }
 
-      await heroService.addHero(this.hero)
-      this.pageable.page = 1
-      await this.getHeroes()
-      this.hero.name = ''
-    },
+      await heroService.addHero(hero.value)
+      pageable.page = 1
+      await getHeroes()
+      hero.value.name = ''
+    }
 
-    async deleteHero(id: number): Promise<void> {
+    async function deleteHero(id: number): Promise<void> {
       await heroService.deleteHero(id)
-      this.pageable.page = 1
-      await this.getHeroes()
-    },
+      pageable.page = 1
+      await getHeroes()
+    }
 
-    formatter(row: Hero, column: unknown, cellValue: string) {
+    function formatter(row: Hero, column: unknown, cellValue: string) {
       return new Date(cellValue).toLocaleDateString()
+    }
+
+    onMounted(async () => {
+      await getHeroes()
+    })
+
+    return {
+      t,
+      heroes,
+      hero,
+      pageable,
+      total,
+      pageChanged,
+      sizeChanged,
+      sortChanged,
+      addHero,
+      deleteHero,
+      formatter
     }
   }
 })

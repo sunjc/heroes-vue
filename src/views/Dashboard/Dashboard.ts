@@ -1,4 +1,5 @@
-import {defineComponent} from 'vue'
+import {defineComponent, onMounted, ref} from 'vue'
+import {useI18n} from 'vue-i18n'
 import HeroSearch from '../../components/HeroSearch/HeroSearch.vue'
 import {Hero} from '../../model/Hero'
 import {PageRequest} from '../../utils/page'
@@ -11,22 +12,23 @@ export default defineComponent({
     HeroSearch
   },
 
-  data() {
-    return {
-      heroes: [] as Hero[],
+  setup() {
+    const {t} = useI18n()
+    const heroes = ref<Hero[]>([])
+    const pageable = new PageRequest(1, 4)
+
+    async function getHeroes(): Promise<void> {
+      heroes.value = (await heroService.getHeroes(pageable)).content
     }
-  },
 
-  async mounted() {
-    await this.getHeroes()
-  },
+    onMounted(async () => {
+      await getHeroes()
+    })
 
-  methods: {
-    async getHeroes(): Promise<void> {
-      const pageable = new PageRequest()
-      pageable.size = 4
-
-      this.heroes = (await heroService.getHeroes(pageable)).content
+    return {
+      t,
+      heroes,
+      getHeroes
     }
   }
 })

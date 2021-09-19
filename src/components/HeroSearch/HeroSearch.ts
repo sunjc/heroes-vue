@@ -1,7 +1,8 @@
-import {defineComponent} from 'vue'
+import {defineComponent, ref} from 'vue'
+import {useI18n} from 'vue-i18n'
+import {ElInput} from 'element-plus'
 import {Hero} from '../../model/Hero'
 import {searchHeroes} from '../../service/HeroService'
-import {ElInput} from 'element-plus'
 
 export default defineComponent({
   name: 'HeroSearch',
@@ -10,21 +11,25 @@ export default defineComponent({
     ElInput
   },
 
-  data() {
-    return {
-      heroes: [] as Hero[],
-      name: ''
-    }
-  },
+  setup() {
+    const {t} = useI18n()
+    const heroes = ref<Hero[]>([])
+    const name = ref('')
 
-  methods: {
-    async search() {
-      if (!this.name) {
-        this.heroes = []
+    async function search() {
+      if (!name.value) {
+        heroes.value = []
         return
       }
 
-      this.heroes = await searchHeroes(this.name)
+      heroes.value = await searchHeroes(name.value)
+    }
+
+    return {
+      t,
+      heroes,
+      name,
+      search
     }
   }
 })

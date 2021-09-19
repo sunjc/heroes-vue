@@ -1,4 +1,5 @@
-import {defineComponent} from 'vue'
+import {computed, defineComponent, ref} from 'vue'
+import {useI18n} from 'vue-i18n'
 import {ElCol, ElConfigProvider, ElContainer, ElHeader, ElMain, ElRadioButton, ElRadioGroup, ElRow} from 'element-plus'
 import enLocale from 'element-plus/lib/locale/lang/en'
 import zhLocale from 'element-plus/lib/locale/lang/zh-cn'
@@ -14,30 +15,32 @@ export default defineComponent({
     ElRow,
     [ElConfigProvider.name]: ElConfigProvider,
   },
-  data() {
-    return {
-      locale: enLocale as any,
-      localeName: enLocale.name,
-      supportLocales: [
-        {code: enLocale.name, label: 'English'},
-        {code: zhLocale.name, label: '中文'}
-      ]
-    }
-  },
-  computed: {
-    currentDate(): string {
-      return this.$d(new Date())
-    }
-  },
-  methods: {
-    switchLocale(): void {
-      this.$i18n.locale = this.localeName
 
-      if (this.localeName === zhLocale.name) {
-        this.locale = zhLocale
+  setup() {
+    const {t, d, locale} = useI18n()
+    const supportLocales = [
+      {name: enLocale.name, label: 'English'},
+      {name: zhLocale.name, label: '中文'}
+    ]
+    const elLocale = ref<any>(enLocale)
+
+    const currentDate = computed(() => d(new Date))
+
+    function switchLocale(): void {
+      if (locale.value === zhLocale.name) {
+        elLocale.value = zhLocale
       } else {
-        this.locale = enLocale
+        elLocale.value = enLocale
       }
+    }
+
+    return {
+      t,
+      locale,
+      supportLocales,
+      elLocale,
+      currentDate,
+      switchLocale
     }
   }
 })

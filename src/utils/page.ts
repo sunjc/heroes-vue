@@ -15,9 +15,18 @@ export interface Pageable {
 }
 
 export class PageRequest implements Pageable {
-  page = 1
-  size = DEFAULT_PAGE_SIZE
+  page: number
+  size: number
   sort?: { prop: string, order: string | null }
+
+  constructor(page = 1, size = DEFAULT_PAGE_SIZE, sort?: { prop: string, order: string | null }) {
+    this.page = page
+    this.size = size
+
+    if (sort) {
+      this.sort = sort
+    }
+  }
 }
 
 export function pageParams<T>(query?: T, pageable?: Pageable): URLSearchParams {

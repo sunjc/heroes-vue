@@ -1,7 +1,9 @@
-import {defineComponent} from 'vue'
+import {computed, defineComponent, onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {useI18n} from 'vue-i18n'
+import {ElForm, ElFormItem, ElInput} from 'element-plus'
 import {Credentials} from '../../model/Credentials'
 import * as authService from '../../service/AuthService'
-import {ElForm, ElFormItem, ElInput} from 'element-plus'
 
 export default defineComponent({
   name: 'Login',
@@ -12,40 +14,41 @@ export default defineComponent({
     ElInput
   },
 
-  data() {
-    return {
-      user: {} as Credentials,
-    }
-  },
+  setup() {
+    const {t} = useI18n()
+    const router = useRouter()
+    const loginForm = ref<any>(null)
+    const user = ref<Credentials>({} as Credentials)
+    const rules = computed(() => ({
+      username: [
+        {required: true, message: t('message.usernameError'), trigger: 'blur'}
+      ],
+      password: [
+        {required: true, message: t('message.passwordError'), trigger: 'blur'}
+      ]
+    }))
 
-  computed: {
-    rules() {
-      return {
-        username: [
-          {required: true, message: this.$t('message.usernameError'), trigger: 'blur'}
-        ],
-        password: [
-          {required: true, message: this.$t('message.passwordError'), trigger: 'blur'}
-        ]
-      }
-    }
-  },
-
-  mounted() {
-    authService.logout()
-  },
-
-  methods: {
-    async login(): Promise<void> {
-      const loginForm = this.$refs.loginForm as any
+    async function login(): Promise<void> {
       try {
-        await loginForm.validate()
+        await loginForm.value.validate()
       } catch (error) {
         return
       }
 
-      await authService.login(this.user)
-      await this.$router.push('/dashboard')
+      await authService.login(user.value)
+      await router.push('/dashboard')
+    }
+
+    onMounted(() => {
+      authService.logout()
+    })
+
+    return {
+      t,
+      loginForm,
+      user,
+      rules,
+      login
     }
   }
 })

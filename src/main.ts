@@ -14,6 +14,8 @@ import {messages} from './locale/messages'
 import {onError, onWarn} from './utils/exceptions'
 
 const i18n = createI18n({
+  legacy: false,
+  globalInjection: true,
   locale: enLocale.name,
   fallbackLocale: enLocale.name,
   messages,

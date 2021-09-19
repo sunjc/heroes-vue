@@ -1,30 +1,30 @@
 <template>
-  <el-config-provider :locale="locale">
+  <el-config-provider :locale="elLocale">
     <el-container>
       <el-header height="130px">
         <el-row>
           <el-col :span="24">
-            <h1>{{ $t("message.title") }}</h1>
+            <h1>{{ t("message.title") }}</h1>
           </el-col>
         </el-row>
         <el-row align="middle" :gutter="20">
           <el-col :span="12">
             <div id="nav">
-              <router-link to="/login">{{ $t("message.login") }}</router-link>
+              <router-link to="/login">{{ t("message.login") }}</router-link>
               |
-              <router-link to="/dashboard">{{ $t("message.dashboard") }}</router-link>
+              <router-link to="/dashboard">{{ t("message.dashboard") }}</router-link>
               |
-              <router-link to="/heroes">{{ $t("message.heroes") }}</router-link>
+              <router-link to="/heroes">{{ t("message.heroes") }}</router-link>
               |
-              <router-link to="/about">{{ $t("message.about") }}</router-link>
+              <router-link to="/about">{{ t("message.about") }}</router-link>
             </div>
           </el-col>
           <el-col :span="3">
             {{ currentDate }}
           </el-col>
           <el-col :span="5">
-            <el-radio-group v-model="localeName" @change="switchLocale">
-              <el-radio-button v-for="item in supportLocales" :key="item.code" :label="item.code">
+            <el-radio-group v-model="locale" @change="switchLocale">
+              <el-radio-button v-for="item in supportLocales" :key="item.name" :label="item.name">
                 {{ item.label }}
               </el-radio-button>
             </el-radio-group>
