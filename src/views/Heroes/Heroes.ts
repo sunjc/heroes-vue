@@ -65,30 +65,30 @@ export default defineComponent({
       }
     ]))
 
-    const getHeroes = async (): Promise<void> => {
+    async function getHeroes(): Promise<void> {
       const page = await heroService.getHeroes(pageable)
       heroes.value = page.content
       itemCount.value = page.totalElements
     }
 
-    const pageChanged = async (page: number): Promise<void> => {
+    async function pageChanged(page: number): Promise<void> {
       pageable.page = page
       await getHeroes()
     }
 
-    const sizeChanged = async (size: number): Promise<void> => {
+    async function sizeChanged(size: number): Promise<void> {
       pageable.page = 1
       pageable.size = size
       await getHeroes()
     }
 
-    const sortChanged = async (sort: { columnKey: string, order: string }) => {
+    async function sortChanged(sort: { columnKey: string, order: string }) {
       pageable.sort = sort
       pageable.page = 1
       await getHeroes()
     }
 
-    const addHero = async (): Promise<void> => {
+    async function addHero(): Promise<void> {
       if (!hero.value.name) {
         return
       }
@@ -99,13 +99,13 @@ export default defineComponent({
       hero.value.name = ''
     }
 
-    const deleteHero = async (id: number): Promise<void> => {
+    async function deleteHero(id: number): Promise<void> {
       await heroService.deleteHero(id)
       pageable.page = 1
       await getHeroes()
     }
 
-    const rowKey = (rowData: any) => {
+    function rowKey(rowData: any) {
       return rowData.id
     }
 

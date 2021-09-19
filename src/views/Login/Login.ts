@@ -27,7 +27,7 @@ export default defineComponent({
       ]
     }))
 
-    const login = async (): Promise<void> => {
+    async function login(): Promise<void> {
       try {
         await loginForm.value.validate()
       } catch (error) {

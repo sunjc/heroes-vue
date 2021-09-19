@@ -23,13 +23,13 @@ export default defineComponent({
 
   emits: ['pageChange', 'sizeChange'],
 
-  setup(props, context) {
-    const pageChanged = (page: number) => {
-      context.emit('pageChange', page)
+  setup(props, {emit}) {
+    function pageChanged(page: number) {
+      emit('pageChange', page)
     }
 
-    const sizeChanged = (size: number) => {
-      context.emit('sizeChange', size)
+    function sizeChanged(size: number) {
+      emit('sizeChange', size)
     }
 
     return {

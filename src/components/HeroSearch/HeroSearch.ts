@@ -11,7 +11,7 @@ export default defineComponent({
     const heroes = ref<Hero[]>([])
     const name = ref('')
 
-    const search = async () => {
+    async function search() {
       if (!name.value) {
         heroes.value = []
         return

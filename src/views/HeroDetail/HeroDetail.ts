@@ -13,20 +13,20 @@ export default defineComponent({
     const router = useRouter()
     const hero = ref<Hero>({} as Hero)
 
-    const getHero = async (): Promise<void> => {
+    async function getHero(): Promise<void> {
       const id = parseInt(route.params.id as string, 10)
       hero.value = await heroService.getHero(id)
     }
 
-    const goBack = (): void => {
-      router.back()
-    }
-
-    const save = async (): Promise<void> => {
+    async function save(): Promise<void> {
       if (hero.value) {
         await heroService.updateHero(hero.value)
         goBack()
       }
+    }
+
+    function goBack(): void {
+      router.back()
     }
 
     onMounted(async () => {

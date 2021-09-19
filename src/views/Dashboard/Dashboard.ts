@@ -17,7 +17,7 @@ export default defineComponent({
     const heroes = ref<Hero[]>([])
     const pageable = new PageRequest(1, 4)
 
-    const getHeroes = async (): Promise<void> => {
+    async function getHeroes(): Promise<void> {
       heroes.value = (await heroService.getHeroes(pageable)).content
     }
 
