@@ -35,12 +35,12 @@ export default defineComponent({
       {name: enUS.name, label: 'English'},
       {name: zhCN.name, label: '中文'}
     ]
-    const nLocale = ref<NLocale>(zhCN)
+    const nLocale = ref<NLocale>(enUS)
 
     const currentDate = computed(() => d(new Date))
 
-    const switchLocale = (): void => {
-      if (nLocale.value.name === zhCN.name) {
+    function switchLocale(): void {
+      if (locale.value === zhCN.name) {
         nLocale.value = zhCN
       } else {
         nLocale.value = enUS
