@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :locale="nLocale" :theme-overrides="themeOverrides">
+  <n-config-provider :locale="nLocale" :date-locale="nDateLocale" :theme-overrides="themeOverrides">
     <n-layout>
       <n-layout-header height="130px">
         <n-grid :cols="4">
