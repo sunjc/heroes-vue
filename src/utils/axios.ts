@@ -1,5 +1,5 @@
-import axios from "axios"
-import {getToken} from "../service/AuthService"
+import axios from 'axios'
+import {getToken} from '../service/AuthService'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 

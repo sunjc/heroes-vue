@@ -1,11 +1,11 @@
+import http from '../utils/axios'
 import {Credentials} from '../model/Credentials'
-import axios from 'axios'
 import {UserDetails} from '../model/UserDetails'
 
 const authUrl = '/api/auth'
 
 async function login(user: Credentials): Promise<void> {
-  const response = await axios.post(authUrl, user)
+  const response = await http.post(authUrl, user)
   const token = response.data.token
 
   localStorage.setItem('currentUser', JSON.stringify({
