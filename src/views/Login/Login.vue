@@ -1,5 +1,5 @@
 <template>
-  <n-form :model="user" :rules="rules" ref="loginForm" class="login-form">
+  <n-form :model="user" :rules="rules" ref="loginForm" label-placement="left" class="login-form">
     <n-form-item path="username">
       <n-input v-model:value="user.username" :placeholder="t('message.username')">
         <template #prefix>
