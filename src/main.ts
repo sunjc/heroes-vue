@@ -2,7 +2,6 @@ import {createApp} from 'vue'
 import router from './router'
 import App from './App.vue'
 import {setupConfig, setupCustomComponents, setupI18n, setupNaive} from './plugins'
-
 import './assets/styles.scss'
 
 const app = createApp(App)
