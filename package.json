@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.21.4",
-    "naive-ui": "^2.18.2",
+    "naive-ui": "^2.19.0",
     "vue": "^3.2.12",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.11"
