@@ -25,3 +25,20 @@ body {
 a {
   cursor: pointer;
 }
+
+.button {
+  background-color: #409EFF;
+  border-radius: 3px;
+  border-width: 0;
+  color: #ffffff;
+  padding-left: 14px;
+  padding-right: 14px;
+  height: 34px;
+
+  &:hover {
+    background-color: #36ad6a;
+    border-radius: 3px;
+    border-width: 0;
+    color: #ffffff;
+  }
+}

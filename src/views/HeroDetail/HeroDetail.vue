@@ -10,8 +10,13 @@
       </n-form-item>
       <n-form-item>
         <n-space>
-          <n-button @click="goBack()">{{ t("message.back") }}</n-button>
-          <n-button type="primary" v-if="$hasRole('ADMIN')" @click="save()">{{ t("message.save") }}</n-button>
+          <n-button @click="goBack()">
+            {{ t("message.back") }}
+          </n-button>
+          <!--<n-button type="primary" v-if="$hasRole('ADMIN')" @click="save()">{{ t("message.save") }}</n-button>-->
+          <button class="button" v-if="$hasRole('ADMIN')" @click="save()">
+            {{ t("message.save") }}
+          </button>
         </n-space>
       </n-form-item>
     </n-form>

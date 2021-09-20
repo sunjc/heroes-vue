@@ -6,9 +6,12 @@
       <n-input id="new-hero" v-model:value.trim="hero.name"/>
     </n-form-item>
     <n-form-item>
-      <n-button type="primary" @click="addHero()">
+      <!--<n-button type="primary" @click="addHero()">
+         {{ t("message.addHero") }}
+      </n-button>-->
+      <button class="button" @click="addHero()">
         {{ t("message.addHero") }}
-      </n-button>
+      </button>
     </n-form-item>
   </n-form>
 
