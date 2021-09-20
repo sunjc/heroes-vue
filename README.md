@@ -1,4 +1,4 @@
-# Demo Project for Vue 3 & Typescript & Vite
+# Demo Project for Vue 3 & Naive UI & Typescript
 
 ## Project setup
 ```
