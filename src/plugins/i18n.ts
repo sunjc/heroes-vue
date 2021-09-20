@@ -5,6 +5,7 @@ import {App} from 'vue'
 
 const i18n = createI18n({
   legacy: false,
+  globalInjection: true,
   locale: enUS.name,
   fallbackLocale: enUS.name,
   messages,

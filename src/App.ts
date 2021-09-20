@@ -3,9 +3,14 @@ import {useI18n} from 'vue-i18n'
 import {dateEnUS, dateZhCN, enUS, zhCN} from 'naive-ui'
 import {NLocale} from 'naive-ui/lib/locales/common/enUS'
 import {NDateLocale} from 'naive-ui/lib/locales/date/enUS'
+import MessageContent from './components/MessageContent/MessageContent.vue';
 import {themeOverrides} from './utils/theme'
 
 export default defineComponent({
+  components: {
+    MessageContent
+  },
+
   setup() {
     const {t, d, locale} = useI18n()
     const supportLocales = [
