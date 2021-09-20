@@ -1,7 +1,7 @@
 import {ComponentPublicInstance} from '@vue/runtime-core'
 import {useI18n} from 'vue-i18n'
 
-export function onError(err: any, instance: ComponentPublicInstance | null, info: string) {
+export function onError(err: any, vm: ComponentPublicInstance | null, info: string) {
   const {t} = useI18n()
   let message
   switch (err.status) {
@@ -25,9 +25,9 @@ export function onError(err: any, instance: ComponentPublicInstance | null, info
       message = err.data.message
       break
   }
-  instance?.$message.error(message)
+  vm?.$message.error(message)
 }
 
-export function onWarn(msg: string, instance: ComponentPublicInstance | null, trace: string) {
+export function onWarn(msg: string, vm: ComponentPublicInstance | null, trace: string) {
   console.warn(msg, trace)
 }
