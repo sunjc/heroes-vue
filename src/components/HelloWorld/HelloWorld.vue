@@ -41,7 +41,7 @@
     <ul>
       <li><a href="https://v3.vuejs.org/" target="_blank">Vue 3.0</a></li>
       <li><a href="https://vuex.vuejs.org/" target="_blank">Vuex</a></li>
-      <li><a href="https://github.com/vuejs/devtools" target="_blank">vue-devtools</a>
+      <li><a href="https://github.com/vuejs/devtools" target="_blank">vue-devtools</a></li>
       <li><a href="https://2x.antdv.com/" target="_blank">Ant Design Vue</a></li>
       <li><a href="https://awesome-vue.js.org/" target="_blank">Awesome Vue</a></li>
       <li><a href="https://element-plus.org/" target="_blank">Element Plus</a></li>
