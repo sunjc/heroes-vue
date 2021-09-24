@@ -6,6 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "test": "jest",
+    "e2e": "cypress run --browser chrome",
     "cypress:open": "cypress open",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },

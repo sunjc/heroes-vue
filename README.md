@@ -22,7 +22,7 @@ npm run test
 
 ### Run your end-to-end tests
 ```
-npm run test:e2e
+npm run e2e
 ```
 
 ### Lints and fixes files
