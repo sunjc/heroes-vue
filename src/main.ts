@@ -22,5 +22,3 @@ setupConfig(app)
 app.use(router)
 
 app.mount('#app')
-
-document.title = import.meta.env.VITE_APP_TITLE

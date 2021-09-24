@@ -30,6 +30,8 @@ export default defineComponent({
         nLocale.value = enUS
         nDateLocale.value = dateEnUS
       }
+
+      document.title = t('message.title')
     }
 
     return {
