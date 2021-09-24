@@ -9,6 +9,7 @@ export default defineComponent({
   name: 'MessageContent',
 
   setup() {
+    // @ts-ignore
     window['$message'] = useMessage()
   }
 })
