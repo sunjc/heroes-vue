@@ -24,7 +24,7 @@ export default defineComponent({
   emits: ['currentChange', 'sizeChange'],
 
   setup(props, {emit}) {
-    function pageChanged(page: number) {
+    function currentChanged(page: number) {
       emit('currentChange', page)
     }
 
@@ -34,7 +34,7 @@ export default defineComponent({
 
     return {
       pageSizes: PAGE_SIZES,
-      pageChanged,
+      currentChanged,
       sizeChanged
     }
   }
