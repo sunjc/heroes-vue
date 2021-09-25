@@ -1,7 +1,7 @@
 import {App} from 'vue'
 import {ElButton, ElLoading, ElMessage, ElPagination} from 'element-plus'
-import '../element-variables.scss'
-import 'element-plus/theme-chalk/src/index.scss'
+import 'element-plus/dist/index.css'
+import '../styles/element.scss'
 
 export function setupElementUI(app: App<Element>) {
   app.use(ElButton)

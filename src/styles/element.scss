@@ -1,0 +1,24 @@
+:root {
+  --el-color-primary: #409eff;
+  --el-table-font-color: black;
+  --el-table-header-font-color: black;
+}
+
+.el-table {
+  .cell {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.el-table--border {
+  .el-table__cell:first-child {
+    .cell {
+      padding-left: 0;
+    }
+  }
+}
+
+.el-table--small .el-table__cell {
+  padding: 2px;
+}
