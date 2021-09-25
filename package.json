@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:staging": "vite build --mode staging",
     "serve": "vite preview",
     "test": "jest",
     "e2e": "cypress run --browser chrome",
