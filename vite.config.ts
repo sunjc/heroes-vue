@@ -3,19 +3,22 @@ import {defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
+// eslint-disable-next-line no-unused-vars
 export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
+  const {VITE_PORT, VITE_BASE_URL, VITE_API_URL} = env
 
   return {
-    base: env.VITE_BASE_URL,
+    base: VITE_BASE_URL,
     plugins: [
       vue(),
     ],
     server: {
+      port: VITE_PORT,
       proxy: {
         '/api': {
-          target: env.VITE_API_URL,
+          target: VITE_API_URL,
           changeOrigin: true,
         }
       }
