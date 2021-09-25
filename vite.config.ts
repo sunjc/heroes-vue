@@ -7,16 +7,17 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
+  const {VITE_BASE_URL, VITE_API_URL} = env
 
   return {
-    base: env.VITE_BASE_URL,
+    base: VITE_BASE_URL,
     plugins: [
       vue(),
     ],
     server: {
       proxy: {
         '/api': {
-          target: env.VITE_API_URL,
+          target: VITE_API_URL,
           changeOrigin: true,
         }
       }
