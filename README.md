@@ -1,4 +1,4 @@
-# Demo Project for Vue 3 & Typescript & Vite
+# Demo Project for Vue 3 & Element Plus & Typescript
 
 ## Project setup
 ```
@@ -17,12 +17,12 @@ npm run build
 
 ### Run your unit tests
 ```
-npm run test:unit
+npm run test
 ```
 
 ### Run your end-to-end tests
 ```
-npm run test:e2e
+npm run e2e
 ```
 
 ### Lints and fixes files
@@ -31,4 +31,4 @@ npm run lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuring Vite](https://vitejs.dev/config/).

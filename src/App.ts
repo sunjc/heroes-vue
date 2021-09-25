@@ -32,6 +32,7 @@ export default defineComponent({
       } else {
         elLocale.value = enLocale
       }
+      document.title = t('message.title')
     }
 
     return {
