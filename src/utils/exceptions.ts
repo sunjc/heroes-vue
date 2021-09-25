@@ -20,7 +20,11 @@ export function onError(err: any, vm: ComponentPublicInstance | null, info: stri
       message = vm?.$t('message.error.serverError')
       break
     default:
-      message = err.data.message
+      if (err.data) {
+        message = err.data.message
+      } else {
+        message = err.message
+      }
       break
   }
   vm?.$message.error(message)
