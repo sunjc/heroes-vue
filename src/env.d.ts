@@ -9,7 +9,7 @@ declare module '*.vue' {
 // eslint-disable-next-line no-unused-vars
 interface ImportMetaEnv {
   VITE_APP_TITLE: string
-  VITE_PORT: number
+  VITE_PORT: string
   VITE_BASE_URL: string
   VITE_API_URL: string
 }
