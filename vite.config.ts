@@ -15,7 +15,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
       vue(),
     ],
     server: {
-      port: VITE_PORT,
+      port: Number(VITE_PORT),
       proxy: {
         '/api': {
           target: VITE_API_URL,
