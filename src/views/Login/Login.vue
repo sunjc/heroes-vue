@@ -24,7 +24,7 @@
     </n-form-item>
     <n-form-item>
       <!--<n-button type="primary" class="login-form-button" @click="login">{{ t("message.login") }}</n-button>-->
-      <button class="button login-form-button" @click="login">
+      <button type="button" class="button login-form-button" @click="login">
         {{ t("message.login") }}
       </button>
     </n-form-item>

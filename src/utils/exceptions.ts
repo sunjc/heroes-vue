@@ -4,11 +4,7 @@ export function onError(err: any, vm: ComponentPublicInstance | null, info: stri
   let message
   switch (err.status) {
     case 401:
-      if (err.data.error === 'BadCredentialsException') {
-        message = vm?.$t('message.error.badCredentials')
-      } else {
-        message = vm?.$t('message.error.unauthorized')
-      }
+      message = vm?.$t('message.error.unauthorized')
       break
     case 403:
       message = vm?.$t('message.error.forbidden')
