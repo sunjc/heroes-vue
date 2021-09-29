@@ -3,7 +3,7 @@
     <n-message-provider>
       <message-content/>
       <n-layout>
-        <n-layout-header height="130px">
+        <n-layout-header>
           <n-grid :cols="4">
             <n-gi :span="4">
               <h1>{{ t("message.title") }}</h1>
