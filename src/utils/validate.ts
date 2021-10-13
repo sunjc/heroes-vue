@@ -1,4 +1,4 @@
-import {FormItemRule} from 'naive-ui';
+import {FormItemRule} from 'naive-ui'
 
 export function isPhoneNumber(rule: FormItemRule, value: any) {
   const regex = /^\d{11}$/

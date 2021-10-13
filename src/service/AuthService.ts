@@ -5,7 +5,7 @@ import {UserDetails} from '../model/UserDetails'
 const authUrl = '/api/auth'
 
 async function login(user: Credentials): Promise<void> {
-  const response = await http.post(authUrl, user)
+  const response = await http.post<{ token: string }>(authUrl, user)
   const token = response.data.token
 
   localStorage.setItem('currentUser', JSON.stringify({
@@ -23,11 +23,6 @@ function getCurrentUser(): UserDetails {
 function getToken(): string | null {
   const currentUser = getCurrentUser()
   return currentUser ? currentUser.token : null
-}
-
-function getUsername(): string | null {
-  const currentUser = getCurrentUser()
-  return currentUser ? currentUser.username : null
 }
 
 function logout(): void {
