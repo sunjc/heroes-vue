@@ -17,7 +17,7 @@
 
   <div class="heroes">
     <n-data-table size="small" :loading="loading" :columns="columns" :data="heroes" :row-key="rowKey"
-                  @update:sorter="sortChanged"/>
+                  @update:sorter="sortChanged" :row-class-name="rowClass"/>
     <pagination :page="pageable.page" :page-size="pageable.size" :item-count="itemCount"
                 @page-change="pageChanged" @size-change="sizeChanged"/>
   </div>

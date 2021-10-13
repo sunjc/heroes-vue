@@ -5,6 +5,7 @@ import {CloseCircleOutline} from '@vicons/ionicons5'
 import {Hero} from '../../model/Hero'
 import * as heroService from '../../service/HeroService'
 import {PageRequest} from '../../utils/page'
+import {renderLink, rowClass} from '../../utils/common'
 
 export default defineComponent({
   name: 'Heroes',
@@ -32,7 +33,7 @@ export default defineComponent({
         sorter: true,
         sortOrder: pageable.sort?.order,
         render(row: any) {
-          return h('a', {href: `/detail/${row.id}`}, row.name)
+          return renderLink(`/detail/${row.id}`, row.name)
         }
       },
       {
@@ -56,7 +57,7 @@ export default defineComponent({
                 circle: true,
                 size: 'small',
                 onClick: async () => {
-                  deleteHero(row.id)
+                  await deleteHero(row.id)
                 }
               },
               {default: () => h(NIcon, {color: 'red', size: 24}, {default: () => h(CloseCircleOutline)})}
@@ -123,6 +124,7 @@ export default defineComponent({
       pageable,
       itemCount,
       rowKey,
+      rowClass,
       pageChanged,
       sizeChanged,
       sortChanged,
