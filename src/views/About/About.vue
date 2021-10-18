@@ -1,9 +1,8 @@
 <template>
   <div class="about">
-    <img alt="Vue logo" src="../../assets/logo.png">
-    <hello-world msg="Welcome to VUE 3 + Naive UI + TypeScript App"/>
+    <document :editor-data="editorData"/>
   </div>
 </template>
 
 <script lang="ts" src="./About.ts"></script>
-<style scoped lang="scss" src="./About.scss"></style>
+<style lang="scss" src="./About.scss"></style>

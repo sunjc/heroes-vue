@@ -1,3 +1,19 @@
 .about {
+  padding-top: 20px;
+}
+
+.ck.ck-editor__editable_inline[dir=ltr] {
   text-align: center;
+}
+
+.ck-content .table table {
+  border: 0;
+
+  td {
+    border: 0;
+
+    a {
+      color: #42b983;
+    }
+  }
 }
