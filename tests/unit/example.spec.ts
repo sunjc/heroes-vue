@@ -1,12 +1,12 @@
 import {shallowMount} from '@vue/test-utils'
-import HelloWorld from '../../src/components/HelloWorld/HelloWorld.vue'
+import Document from '../../src/components/Document/Document.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: {msg}
+describe('Document.vue', () => {
+  it('renders props.modelValue when passed', () => {
+    const modelValue = 'new message'
+    const wrapper = shallowMount(Document, {
+      props: {modelValue}
     })
-    expect(wrapper.text()).toContain(msg)
+    expect(wrapper.html()).toContain(modelValue)
   })
 })
