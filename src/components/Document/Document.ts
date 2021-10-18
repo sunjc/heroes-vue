@@ -1,4 +1,4 @@
-import {defineComponent} from 'vue'
+import {computed, defineComponent} from 'vue'
 // @ts-ignore
 import CKEditor from '@ckeditor/ckeditor5-vue'
 // @ts-ignore
@@ -9,23 +9,25 @@ export default defineComponent({
   name: 'Document',
 
   props: {
-    editorData: {
+    modelValue: {
       type: String,
-      required: true
+      default: ""
     }
   },
+
+  emits: ['update:modelValue'],
 
   components: {
     ckeditor: CKEditor.component
   },
 
-  setup() {
+  setup(props: any, {emit}) {
     const editor = DecoupledEditor
     const editorConfig = {
       language: 'zh-cn'
     }
 
-    function onReady(editor: any) {
+    function onReady(editor: CKEditor) {
       // Insert the toolbar before the editable area.
       editor.ui.getEditableElement().parentElement.insertBefore(
           editor.ui.view.toolbar.element,
@@ -33,7 +35,18 @@ export default defineComponent({
       )
     }
 
+    const value = computed({
+      get() {
+        return props.modelValue
+      },
+
+      set(value) {
+        emit('update:modelValue', value)
+      }
+    })
+
     return {
+      value,
       editor,
       editorConfig,
       onReady

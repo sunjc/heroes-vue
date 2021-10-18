@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <document :editor-data="editorData"/>
+    <document v-model="editorData"/>
   </div>
 </template>
 
