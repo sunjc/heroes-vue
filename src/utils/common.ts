@@ -12,7 +12,3 @@ export function rowClass(row: Object, index: number) {
 export function renderRouterLink(path: string, text: string) {
   return h(RouterLink, {to: {path: path}}, {default: () => text})
 }
-
-export const windowWidth = window.innerWidth
-
-export const windowHeight = window.innerHeight
