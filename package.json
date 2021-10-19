@@ -15,7 +15,7 @@
     "@ckeditor/ckeditor5-build-decoupled-document": "^30.0.0",
     "@ckeditor/ckeditor5-vue": "^2.0.1",
     "axios": "^0.23.0",
-    "naive-ui": "^2.19.7",
+    "naive-ui": "^2.19.9",
     "vue": "^3.2.20",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.11"
