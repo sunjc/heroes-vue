@@ -1,4 +1,5 @@
-import {h, resolveComponent} from 'vue';
+import {h} from 'vue'
+import {RouterLink} from 'vue-router'
 
 export function rowClass(row: Object, index: number) {
   if (index % 2 == 0) {
@@ -8,9 +9,8 @@ export function rowClass(row: Object, index: number) {
   }
 }
 
-export function renderLink(path: string, text: string) {
-  // @ts-ignore
-  return h(resolveComponent('router-link'), {to: path}, {default: () => text})
+export function renderRouterLink(path: string, text: string) {
+  return h(RouterLink, {to: {path: path}}, {default: () => text})
 }
 
 export const windowWidth = window.innerWidth
