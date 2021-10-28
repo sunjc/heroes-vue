@@ -5,7 +5,23 @@ export default defineComponent({
   name: 'Gantt',
 
   props: {
-    data: {
+    locale: {
+      type: String,
+      default: 'en'
+    },
+    columns: {
+      type: Array,
+      default() {
+        return [
+          {name: "text", tree: true, width: '*'},
+          {name: "start_date", align: "center"},
+          {name: "duration", align: "center"},
+          {name: "add", label: ""}
+        ]
+      }
+    },
+    scales: Array,
+    tasks: {
       type: Array,
       default() {
         return []
@@ -16,28 +32,41 @@ export default defineComponent({
       default() {
         return []
       }
-    }
+    },
+
   },
 
   setup(props: any) {
     const ganttChart = ref<any>(null)
-    const {data, links} = toRefs(props)
+    const {locale, columns, tasks, links} = toRefs(props)
 
     function init() {
-      gantt.i18n.setLocale('cn')
       gantt.i18n.setLocale({
         labels: {
-          new_task: '新任务'
+          new_task: ''
         }
       })
 
       gantt.config.xml_date = '%Y-%m-%d'
       gantt.config.date_format = '%Y-%m-%d'
+
+      gantt.config.columns = columns.value
+
+      gantt.config.scale_height = 60
+      if (props.scales) {
+        gantt.config.scales = props.scales
+      }
+
       gantt.init(ganttChart.value)
     }
 
-    watch([data, links], () => {
-      gantt.parse({data: data.value, links: links.value})
+    watch(locale, () => {
+      gantt.i18n.setLocale(locale.value)
+      gantt.render()
+    })
+
+    watch([tasks, links], () => {
+      gantt.parse({data: tasks.value, links: links.value})
     })
 
     onMounted(() => {

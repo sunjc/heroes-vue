@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <gantt class="gantt" :data="data" :links="links"></gantt>
+    <gantt class="gantt" :locale="ganttLocale" :scales="scales" :tasks="tasks" :links="links"></gantt>
   </div>
 </template>
 
