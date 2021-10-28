@@ -16,6 +16,8 @@
                 |
                 <router-link to="/heroes">{{ t("message.heroes") }}</router-link>
                 |
+                <router-link to="/task">{{ t("message.gantt") }}</router-link>
+                |
                 <router-link to="/about">{{ t("message.about") }}</router-link>
               </div>
             </n-gi>

@@ -1,7 +1,5 @@
 <template>
-  <div class="about">
-    <document v-model="editorData"/>
-  </div>
+  <document v-model="editorData"/>
 </template>
 
 <script lang="ts" src="./About.ts"></script>

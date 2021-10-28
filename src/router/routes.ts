@@ -27,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Heroes/Heroes.vue')
   },
   {
+    path: '/task',
+    name: 'task',
+    component: () => import('../views/Task/Task.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('../views/About/About.vue')

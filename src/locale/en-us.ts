@@ -3,6 +3,7 @@ export const enMessage = {
   login: 'Login',
   dashboard: 'Dashboard',
   heroes: 'Heroes',
+  gantt: 'Gantt Chart',
   about: 'About',
   username: 'Username',
   password: 'Password',

@@ -3,6 +3,7 @@ export const zhMessage = {
   login: '登录',
   dashboard: '仪表盘',
   heroes: '英雄列表',
+  gantt: '甘特图',
   about: '关于',
   username: '用户名',
   password: '密码',
