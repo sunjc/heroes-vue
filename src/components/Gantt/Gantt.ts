@@ -57,6 +57,18 @@ export default defineComponent({
         gantt.config.scales = props.scales
       }
 
+      // @ts-ignore
+      gantt.templates.task_class = function (start, end, task) {
+        switch (task.priority) {
+          case "1":
+            return "high";
+          case "2":
+            return "medium";
+          case "3":
+            return "low";
+        }
+      }
+
       gantt.init(ganttChart.value)
     }
 

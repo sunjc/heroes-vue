@@ -36,17 +36,19 @@ export default defineComponent({
 
     function loadData() {
       tasks.value = [
-        {id: 1, text: "Project #1", start_date: "2021-10-01", duration: 18},
-        {id: 2, text: "Task #1", start_date: "2021-10-02", duration: 8, progress: 0.6, parent: 1},
-        {id: 3, text: "Task #2", start_date: "2021-10-11", duration: 8, progress: 0.6, parent: 1},
-        {id: 4, text: "Project #2", start_date: "2021-10-11", duration: 5},
-        {id: 5, text: "Task #1", start_date: "2021-10-12", duration: 3, progress: 0.1, parent: 4},
-        {id: 6, text: "Task #2", start_date: "2021-10-11", duration: 5, progress: 0.5, parent: 4}
+        {id: 1, text: "Project #1", type: gantt.config.types.project, open: true},
+        {id: 2, text: "Task #1", start_date: "2021-10-02", duration: 8, progress: 0.6, priority: '1', parent: 1},
+        {id: 3, text: "Release", type: gantt.config.types.milestone, start_date: "2021-10-11", parent: 1,},
+        {id: 4, text: "Task #2", start_date: "2021-10-12", duration: 8, progress: 0.6, priority: '2', parent: 1},
+        {id: 5, text: "Project #2", start_date: "2021-10-11", duration: 5},
+        {id: 6, text: "Task #1", start_date: "2021-10-11", duration: 3, progress: 0.1, priority: '3', parent: 5},
+        {id: 7, text: "Task #2", start_date: "2021-10-12", duration: 4, progress: 0.5, parent: 5}
       ]
 
       links.value = [
         {id: 1, source: 1, target: 2, type: 1},
-        {id: 2, source: 2, target: 3, type: 0}
+        {id: 2, source: 2, target: 3, type: 0},
+        {id: 3, source: 3, target: 4, type: 0}
       ]
     }
 

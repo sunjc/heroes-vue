@@ -1,1 +1,55 @@
 @import "/node_modules/dhtmlx-gantt/codebase/dhtmlxgantt.css";
+
+/* common styles for overriding borders/progress color */
+.gantt_task_line {
+  border-color: rgba(0, 0, 0, 0.25);
+
+  .gantt_task_progress {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* high */
+.high {
+  border: 2px solid #d96c49;
+  color: #d96c49;
+  background: #d96c49;
+
+  .gantt_task_content {
+    color: #fff;
+  }
+
+  .gantt_task_progress {
+    background: #db2536;
+  }
+}
+
+/* medium */
+.medium {
+  border: 2px solid #34c461;
+  color: #34c461;
+  background: #34c461;
+
+  .gantt_task_content {
+    color: #fff;
+  }
+
+  .gantt_task_progress {
+    background: #23964d;
+  }
+}
+
+/* low */
+.low {
+  border: 2px solid #6ba8e3;
+  color: #6ba8e3;
+  background: #6ba8e3;
+
+  .gantt_task_content {
+    color: #fff;
+  }
+
+  .gantt_task_progress {
+    background: #547dab;
+  }
+}
