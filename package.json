@@ -1,6 +1,6 @@
 {
   "name": "heroes-vue",
-  "version": "3.2.22",
+  "version": "3.2.23",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -16,8 +16,8 @@
     "@ckeditor/ckeditor5-vue": "^2.0.1",
     "axios": "^0.24.0",
     "dhtmlx-gantt": "^7.1.7",
-    "naive-ui": "^2.20.3",
-    "vue": "^3.2.22",
+    "naive-ui": "^2.21.2",
+    "vue": "^3.2.23",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12"
   },
