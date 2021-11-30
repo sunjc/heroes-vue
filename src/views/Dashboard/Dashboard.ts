@@ -1,16 +1,11 @@
 import {defineComponent, onMounted, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
-import HeroSearch from '../../components/HeroSearch/HeroSearch.vue'
 import {Hero} from '../../model/Hero'
 import {PageRequest} from '../../utils/page'
 import * as heroService from '../../service/HeroService'
 
 export default defineComponent({
   name: 'Dashboard',
-
-  components: {
-    HeroSearch
-  },
 
   setup() {
     const {t} = useI18n()

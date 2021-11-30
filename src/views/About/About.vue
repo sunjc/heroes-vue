@@ -5,5 +5,8 @@
   </div>
 </template>
 
-<script lang="ts" src="./About.ts"></script>
-<style scoped lang="scss" src="./About.scss"></style>
+<style scoped lang="scss">
+.about {
+  text-align: center;
+}
+</style>

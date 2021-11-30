@@ -19,7 +19,7 @@
     <el-table :data="heroes" style="width: 100%" row-key="index" size="small" @sort-change="sortChanged"
               :default-sort="{prop: 'name', order: 'ascending'}"
               stripe border highlight-current-row>
-      <el-table-column type="index" :label="t('message.no')" align="center" width="35"></el-table-column>
+      <el-table-column type="index" :label="t('message.no')" align="center" width="40"></el-table-column>
       <el-table-column prop="name" :label="t('message.name')" header-align="center" sortable="custom"
                        :sort-orders="['ascending', 'descending']">
         <template #default="scope">
@@ -29,10 +29,10 @@
         </template>
       </el-table-column>
       <el-table-column prop="createdDate" :label="t('message.createdDate')" :formatter="formatter" align="center"
-                       width="80"></el-table-column>
+                       width="100"></el-table-column>
       <el-table-column :label="t('message.delete')" align="center" width="60" v-if="$hasRole('ADMIN')">
         <template #default="scope">
-          <el-button type="danger" icon="el-icon-delete" size="small" @click="deleteHero(scope.row.id)"></el-button>
+          <el-icon @click="deleteHero(scope.row.id)" color="red"><delete></delete></el-icon>
         </template>
       </el-table-column>
     </el-table>

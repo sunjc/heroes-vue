@@ -1,18 +1,12 @@
 import {computed, defineComponent, onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
 import {useI18n} from 'vue-i18n'
-import {ElForm, ElFormItem, ElInput} from 'element-plus'
+import {Lock, User} from '@element-plus/icons'
 import {Credentials} from '../../model/Credentials'
 import * as authService from '../../service/AuthService'
 
 export default defineComponent({
   name: 'Login',
-
-  components: {
-    ElForm,
-    ElFormItem,
-    ElInput
-  },
 
   setup() {
     const {t} = useI18n()
@@ -48,7 +42,9 @@ export default defineComponent({
       loginForm,
       user,
       rules,
-      login
+      login,
+      User,
+      Lock
     }
   }
 })

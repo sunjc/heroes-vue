@@ -1,18 +1,11 @@
 import {defineComponent, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {useI18n} from 'vue-i18n'
-import {ElForm, ElFormItem, ElInput} from 'element-plus'
 import {Hero} from '../../model/Hero'
 import * as heroService from '../../service/HeroService'
 
 export default defineComponent({
   name: 'HeroDetail',
-
-  components: {
-    ElForm,
-    ElFormItem,
-    ElInput
-  },
 
   setup() {
     const {t} = useI18n()

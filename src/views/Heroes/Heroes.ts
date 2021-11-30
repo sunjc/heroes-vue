@@ -1,6 +1,6 @@
 import {defineComponent, onMounted, reactive, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
-import {ElCol, ElInput, ElRow, ElTable, ElTableColumn} from 'element-plus'
+import {Delete} from '@element-plus/icons'
 import {Hero} from '../../model/Hero'
 import {PageRequest} from '../../utils/page'
 import * as heroService from '../../service/HeroService'
@@ -9,11 +9,7 @@ export default defineComponent({
   name: 'Heroes',
 
   components: {
-    ElCol,
-    ElInput,
-    ElRow,
-    ElTable,
-    ElTableColumn
+    Delete
   },
 
   setup() {
@@ -82,7 +78,8 @@ export default defineComponent({
       sortChanged,
       addHero,
       deleteHero,
-      formatter
+      formatter,
+      Delete
     }
   }
 })

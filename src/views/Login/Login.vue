@@ -1,11 +1,11 @@
 <template>
   <el-form :model="user" :rules="rules" ref="loginForm" class="login-form">
     <el-form-item prop="username">
-      <el-input id="username" v-model="user.username" :placeholder="t('message.username')" prefix-icon="el-icon-user"/>
+      <el-input id="username" v-model="user.username" :placeholder="t('message.username')" :prefix-icon="User"/>
     </el-form-item>
     <el-form-item prop="password">
       <el-input id="password" type="password" v-model="user.password" @keydown.enter="login"
-                :placeholder="t('message.password')" autocomplete="off" prefix-icon="el-icon-lock" show-password/>
+                :placeholder="t('message.password')" autocomplete="off" :prefix-icon="Lock" show-password/>
     </el-form-item>
     <el-form-item>
       ({{ t("message.username") }}/{{ t("message.password") }}: admin/admin, jason/jason)
