@@ -51,6 +51,7 @@ export default defineComponent({
       gantt.config.date_format = '%Y-%m-%d'
 
       gantt.config.columns = columns.value
+      gantt.config.open_tree_initially = true
 
       gantt.config.scale_height = 60
       if (props.scales) {
