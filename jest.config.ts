@@ -174,7 +174,7 @@ export default {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.vue$": "vue-jest",
+    "^.+\\.vue$": "@vue/vue3-jest",
     "^.+\\[jt]s$": "babel-jest"
   },
 
