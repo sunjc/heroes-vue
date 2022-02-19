@@ -1,9 +1,11 @@
-import type {ConfigEnv, UserConfig} from 'vite';
+import type {ConfigEnv, UserConfig} from 'vite'
 import {defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import path from "path"
+
+const pathSrc = path.resolve(__dirname, 'src')
 
 // https://vitejs.dev/config/
 // eslint-disable-next-line no-unused-vars
@@ -14,13 +16,27 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
 
   return {
     base: VITE_BASE_URL,
+    resolve: {
+      alias: {
+        '~/': `${pathSrc}/`,
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use '~/styles/element.scss' as *;`,
+        },
+      },
+    },
     plugins: [
       vue(),
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
       Components({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          ElementPlusResolver({
+            importStyle: 'sass',
+          }),
+        ],
+        dts: path.resolve(pathSrc, 'components.d.ts'),
       }),
     ],
     server: {

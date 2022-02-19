@@ -20,9 +20,9 @@ declare module 'vue' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
-    HelloWorld: typeof import('./src/components/HelloWorld/HelloWorld.vue')['default']
-    HeroSearch: typeof import('./src/components/HeroSearch/HeroSearch.vue')['default']
-    Pagination: typeof import('./src/components/Pagination/Pagination.vue')['default']
+    HelloWorld: typeof import('./components/HelloWorld/HelloWorld.vue')['default']
+    HeroSearch: typeof import('./components/HeroSearch/HeroSearch.vue')['default']
+    Pagination: typeof import('./components/Pagination/Pagination.vue')['default']
   }
 }
 

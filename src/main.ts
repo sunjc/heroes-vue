@@ -3,6 +3,8 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
 import {setupConfig, setupI18n} from './plugins'
+// If you want to use ElMessage, import it.
+import "element-plus/theme-chalk/src/message.scss"
 
 const app = createApp(App)
 

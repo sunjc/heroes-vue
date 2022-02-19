@@ -6,15 +6,15 @@
 
 .el-table {
   .cell {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 
 .el-table--border {
   .el-table__cell:first-child {
     .cell {
-      padding-left: 0;
+      padding-left: 2px;
     }
   }
 }
