@@ -29,6 +29,7 @@ export default defineComponent({
 
     function onReady(editor: CKEditor) {
       // Insert the toolbar before the editable area.
+      // @ts-ignore
       editor.ui.getEditableElement().parentElement.insertBefore(
           editor.ui.view.toolbar.element,
           editor.ui.getEditableElement()

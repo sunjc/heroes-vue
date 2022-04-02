@@ -9,7 +9,7 @@ export default defineComponent({
   },
 
   setup() {
-    const editorData = '<figure class="image image_resized" style="width:200px;"><img src="https://v3.vuejs.org/logo.png"></figure>' +
+    const editorData = '<figure class="image image_resized" style="width:200px;"><img src="https://v3.cn.vuejs.org/logo.png"></figure>' +
         '<h1>Welcome to VUE 3 + Naive UI + TypeScript App</h1>' +
         '<p><a href="https://blog.51cto.com/itrunner"><span style="color:hsl(0, 75%, 60%);">i</span>TRunner - 奔跑的猿</a></p>' +
         '<p>For a guide and recipes on how to configure / customize this project, check out the ' +

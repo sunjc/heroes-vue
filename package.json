@@ -12,10 +12,10 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-decoupled-document": "^31.1.0",
-    "@ckeditor/ckeditor5-vue": "^2.0.1",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^33.0.0",
+    "@ckeditor/ckeditor5-vue": "^3.0.0",
     "axios": "^0.26.1",
-    "dhtmlx-gantt": "^7.1.9",
+    "dhtmlx-gantt": "^7.1.10",
     "naive-ui": "^2.27.0",
     "vue": "^3.2.31",
     "vue-i18n": "^9.1.9",
