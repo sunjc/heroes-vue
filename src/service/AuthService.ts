@@ -49,25 +49,8 @@ function hasRole(role: string): boolean {
 }
 
 function decodeToken(token: string): string {
-  let payload: string = token.split('.')[1]
-
-  payload = payload.replace('/-/g', '+').replace('/_/g', '/')
-  switch (payload.length % 4) {
-    case 0:
-      break
-    case 2:
-      payload += '=='
-      break
-    case 3:
-      payload += '='
-      break
-    default:
-      throw new Error('Invalid token')
-  }
-
-  payload = (payload + '===').slice(0, payload.length + (payload.length % 4))
-
-  return decodeURIComponent(escape(atob(payload)))
+  const payload: string = token.split('.')[1]
+  return window.atob(payload)
 }
 
 function getAuthorities(tokenParsed: string): string[] {
